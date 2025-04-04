@@ -38,9 +38,9 @@
             $this->content = $content;
         }
 
-        public function appendContent(string $content) : void {
+        public function appendContent($content) : void {
             if(strpos($content, '<') !== false) {
-                $this->content = $content;
+                $this->content .= $content;
             }
         }
 

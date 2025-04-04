@@ -3,8 +3,8 @@
 
     $page = new Page("Deep dive forum");
     $page->setContent("<h1>Question</h1>");
-    $page->appendContent("<p>Is null the same as \"\" in php</p>");
-
+    include_once "controllers/login-user.php";
+    $page->appendContent($template);
     include_once "views/page.php";
     echo $template;
 ?>
