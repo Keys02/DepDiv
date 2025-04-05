@@ -30,7 +30,7 @@
             $this-> title = $title;
         }
 
-        public function setStyleSheet(string $style_sheet) : void {
+        public function setStyleSheet(string $style_sheet) : void { 
             $this->style_sheet = $style_sheet;
         }
 

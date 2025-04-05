@@ -1,12 +1,12 @@
 <?php
     $template = " 
-                    <form method='post' action='user-register-form.php'>
+                    <form method='post' action='index.php?page=signup'>
                         <fieldset>
                             <legend>Create an account</legend>
                             <ul>
                                 <li>
                                     <label for='username'>Username</label>
-                                    <input id='username' type='text' placeholder='username...' name='username' maxlength=50 required/>
+                                    <input id='username' type='text' placeholder='username...' name='username' maxlength=50 pattern='[A-Za-z]\w*' required title='Username should contain only alphabets, digits and underscore'/>
                                 </li>
                                 <li>
                                     <label for='username'>Email</label>
@@ -14,14 +14,14 @@
                                 </li>
                                 <li>
                                     <label for='pwd'>Password</label>
-                                    <input id='pwd' type='password' placeholder='password...' name='pwd' maxlength=100 required/>
+                                    <input id='pwd' type='password' placeholder='password...' name='pwd' minlength=8 maxlength=100 pattern='(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@-])[a-zA-Z0-9!@_-]{8,}' required/>
                                 </li>
                             </ul>
                             <li>
-                                <input type='submit' value='Sign Up' />
+                                <input type='submit' name='sign-up' value='Sign Up' />
                             </li>
                             <li>
-                                <a href='index.php?page=login'>Already have an account</a>
+                                <a href='index.php?page=login' role='button'>Already have an account</a>
                             </li>
                         </fieldset>
                     </form>

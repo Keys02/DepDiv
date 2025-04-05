@@ -2,7 +2,7 @@
     /*
         Model: To be hooked to the poll controller and render on the front controller
     */
-    define("DB_INFO", "mysql:host=localhost;dbname=deep_dive_forum");
+    define("DB_INFO", "mysql:host=localhost;dbname=depdiv");
     define("DB_USER", "root");
     define("DB_PASSWORD", "");
 
