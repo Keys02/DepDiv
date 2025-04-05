@@ -16,13 +16,13 @@
                                     <label for='pwd'>Password</label>
                                     <input id='pwd' type='password' placeholder='password...' name='pwd' minlength=8 maxlength=100 pattern='(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@-])[a-zA-Z0-9!@_-]{8,}' required/>
                                 </li>
+                                <li>
+                                    <input type='submit' name='sign-up' value='Sign Up' />
+                                </li>
+                                <li>
+                                    <a href='index.php?page=login' role='button'>Already have an account</a>
+                                </li>
                             </ul>
-                            <li>
-                                <input type='submit' name='sign-up' value='Sign Up' />
-                            </li>
-                            <li>
-                                <a href='index.php?page=login' role='button'>Already have an account</a>
-                            </li>
                         </fieldset>
                     </form>
                 "

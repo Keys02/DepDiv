@@ -9,7 +9,7 @@
 
 
         private function validatePassword(string $pwd) : bool {
-            $match_password = preg_match("#^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@-])[a-zA-Z0-9!@_-]{8,}$#", $pwd);
+            $match_password = preg_match("#^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@-])[a-zA-Z0-9!@_-]{8,}$#", $pwd); // Check if there is at least one uppercase, lowercase and one of these special characters (!@_-)
             $check_length = strlen($pwd) >= 8;
             if($match_password && $check_length) {
                 return true;
@@ -77,8 +77,30 @@
 
         }
 
-        // public function loginUser(string $username, string $password) {
-
-        // }
+        public function checkCredentials(string $username, string $password) {
+            $sql_query = "SELECT username, email, password FROM user WHERE username = ?";
+            $prepared_statement = $this->db->prepare($sql_query);
+            $form_data = array($username);
+            try {
+                $prepared_statement->execute($form_data);
+            } catch(Exception $e) {
+                trigger_error(
+                    "
+                    <p>You tried to run this sql query: $sql_query</p>
+                    <p>{$e->getMessage()}</p>
+                    "
+                );
+            }
+            if($prepared_statement->rowCount() === 1) {
+                $user_data_from_db = $prepared_statement->fetchObject();
+                if(password_verify($password, $user_data_from_db->password)) {
+                    return "User logged in successfully";
+                } else {
+                    trigger_error("Password is incorrect");
+                }
+            } else {
+                throw new Exception("Username is invalid");
+            }
+        }
     }
 ?>

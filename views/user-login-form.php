@@ -1,6 +1,6 @@
 <?php
     $template = " 
-                    <form method='post' action='login-user.php'>
+                    <form method='post' action='index.php?page=login'>
                         <fieldset>
                             <legend>Login</legend>
                             <ul>
@@ -14,7 +14,7 @@
                                 </li>
                             </ul>
                             <li>
-                                <input type='submit' value='Log In' />
+                                <input type='submit' value='Log In' name='log-in' />
                             </li>
                             <li>
                                 <a href='index.php?page=signup' role='button'>Create new account</a>
