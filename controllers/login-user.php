@@ -8,8 +8,8 @@
         $login_status_msg = $user->checkCredentials($username, $pwd);
 
         if($login_status_msg === "Login successful") {
-            $_SESSION['logged-in'] = true;
-            $_SESSION['logged-in-user'] = $username;
+            $user_login_session->logIn();
+            $user_login_session->setLoggedInUser($username);
             header('Location: index.php');
         } else {
             echo $login_status_msg;
