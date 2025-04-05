@@ -94,12 +94,12 @@
             if($prepared_statement->rowCount() === 1) {
                 $user_data_from_db = $prepared_statement->fetchObject();
                 if(password_verify($password, $user_data_from_db->password)) {
-                    return "User logged in successfully";
+                    return "Login successful";
                 } else {
-                    trigger_error("Password is incorrect");
+                    return "Password is incorrect";
                 }
             } else {
-                throw new Exception("Username is invalid");
+                return "Username is invalid";
             }
         }
     }
