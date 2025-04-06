@@ -6,7 +6,9 @@
      
     $main_content =  "
         <section id='container'>
-            <header></header>
+            <header>
+                <nav>{$page->getNavigation()}</nav>
+            </header>
             <main>{$page->getContent()}</main>
         </section>
     ";

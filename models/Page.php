@@ -1,7 +1,8 @@
 <?php
     class Page {
         public string $title = "";
-        public string $style_sheet = "";
+        public string $navigation = "";
+        public string $stylesheet = "";
         public string $content = "";
 
         public function __construct(string $title = "") {
@@ -16,13 +17,16 @@
         }
 
         public function getStyleSheet() : string {
-            return $this->style_sheet;
+            return $this->stylesheet;
         }
 
         public function getContent() : string {
             return $this->content;
         }
 
+        public function getNavigation() : string {
+            return $this->navigation;
+        }
         /*############################
         #           Getters
         ##############################*/
@@ -30,8 +34,8 @@
             $this-> title = $title;
         }
 
-        public function setStyleSheet(string $style_sheet) : void { 
-            $this->style_sheet = $style_sheet;
+        public function setStyleSheet(string $stylesheet) : void { 
+            $this->stylesheet = $stylesheet;
         }
 
         public function setContent(string $content) : void {
@@ -42,6 +46,10 @@
             if(strpos($content, '<') !== false) {
                 $this->content .= $content;
             }
+        }
+
+        public function setNavigation($content) {
+            $this->navigation = $content;
         }
 
     }

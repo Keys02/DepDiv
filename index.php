@@ -11,7 +11,14 @@
     include_once "router.php";
     
     if($user_login_session->UserIsLoggedIn()) {
-        $template = "<p>{$_SESSION['logged-in-user']} All messages will be displayed here</p>";
+        $page->setNavigation(
+            "
+                <ul>
+                    <li><a href='index.php'>Questions</a></li>
+                    <li><a href='index.php?page=post-question'>Post a question</a></li>
+                </ul>
+            "
+        );
         require_once "controllers/logout-user.php";
     }
 
