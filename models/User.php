@@ -1,12 +1,6 @@
 <?php
-    class User {
-        public object $db;
-        
-
-        public function __construct(object $db) {
-            $this->db = $db;
-        }
-
+    require_once "models/Entity.php";
+    class User extends Entity{
 
         private function validatePassword(string $pwd) : bool {
             $match_password = preg_match("#^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@-])[a-zA-Z0-9!@_-]{8,}$#", $pwd); // Check if there is at least one uppercase, lowercase and one of these special characters (!@_-)
@@ -28,19 +22,9 @@
         }
 
         private function checkAvailable(string $username, string $email): bool {
-            $sql_query = "SELECT username, email FROM user WHERE username = ? OR email = ?";
-            $prepared_statement = $this->db->prepare($sql_query);
+            $sql_query = "SELECT username, email FROM user WHERE username = ? OR email = ?;";
             $form_data = array($username, $email);
-            try {
-                $prepared_statement->execute($form_data);
-            } catch(Exception $e) {
-                trigger_error(
-                    "
-                    <p>You tried to run this sql query: $sql_query</p>
-                    <p>{$e->getMessage()}</p>
-                    "
-                );
-            }
+            $prepared_statement = self::executeSQLQuery($sql_query, $form_data);
             if($prepared_statement->rowCount() === 0) {
                 return true;
             } else {
@@ -57,17 +41,9 @@
                 if($user_not_available) {
                     $sanitized_username = htmlspecialchars($username);
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                    $sql_query = "INSERT INTO user (username, email, password) VALUES (?, ?, ?)";
-                    $prepared_statement = $this->db->prepare($sql_query);
+                    $sql_query = "INSERT INTO user (username, email, password) VALUES (?, ?, ?);";
                     $form_data = array($sanitized_username, $email, $hashed_password);
-                    try {
-                        $prepared_statement->execute($form_data);
-                    } catch(Exception $e) {
-                        trigger_error("<p
-                            You tried to run this sql query: $sql_query
-                        </p>
-                        <p>Exception: {$e->getMessage()}</p>");
-                    }   
+                    self::executeSQLQuery($sql_query, $form_data) ;
                 } else {
                     throw new Exception("Username or email already exists");
                 }
@@ -78,19 +54,10 @@
         }
 
         public function checkCredentials(string $username, string $password) {
-            $sql_query = "SELECT username, email, password FROM user WHERE username = ?";
-            $prepared_statement = $this->db->prepare($sql_query);
+            $sql_query = "SELECT username, email, password FROM user WHERE username = ?;";
             $form_data = array($username);
-            try {
-                $prepared_statement->execute($form_data);
-            } catch(Exception $e) {
-                trigger_error(
-                    "
-                    <p>You tried to run this sql query: $sql_query</p>
-                    <p>{$e->getMessage()}</p>
-                    "
-                );
-            }
+            $prepared_statement = self::executeSQLQuery($sql_query, $form_data);
+
             if($prepared_statement->rowCount() === 1) {
                 $user_data_from_db = $prepared_statement->fetchObject();
                 if(password_verify($password, $user_data_from_db->password)) {

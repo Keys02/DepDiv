@@ -7,6 +7,5 @@
         if($user_login_session->userIsLoggedIn()) {
             require_once "controllers/questions.php";
         }
-    //     include_once "views/user-login-form.php";
     }
 ?>
