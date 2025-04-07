@@ -1,4 +1,4 @@
 <?php
-    include "views/question-answers-template.php";
-    include "controllers/answer-question.php";
+    include "views/answers-template.php";
+    include "controllers/submit-answer.php";
 ?>

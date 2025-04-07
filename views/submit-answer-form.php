@@ -1,6 +1,6 @@
 <?php
     $template .= "
-        <form method='post' action='index?question=$question_id'>
+        <form method='post' action='index.php?question=$question_id'>
         <input type='hidden' value='{$user_login_session->getLoggedInUser()}'>
             <fieldset>
                 <ul>
@@ -9,7 +9,7 @@
                         <textarea id='ans' name='ans' required></textarea>
                     </li>
                     <li>
-                        <input type='submit' value='submit answer' name='submit-answer' />
+                        <input type='submit' value='submit-answer' name='submit-answer' />
                     </li>
                 </ul>
             </fieldset>
