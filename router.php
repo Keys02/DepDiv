@@ -11,7 +11,7 @@
         }
     }
 
-    if(isset($_GET['question'])) {
+    if(isset($_GET['qtn'])) {
         require "controllers/all-answers.php";
     }
 ?>

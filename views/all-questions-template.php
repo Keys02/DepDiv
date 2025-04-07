@@ -11,7 +11,7 @@
     while($question_record = $questions_from_db->fetchObject()) {
         $template .= "
                         <li>
-                            <a href='index.php?question={$question_record->question_id}'>{$question_record->question_body}</a>
+                            <a href='index.php?qtn={$question_record->question_id}'>{$question_record->question_body}</a>
                         </li>
                     ";
     }
