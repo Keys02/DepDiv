@@ -10,4 +10,8 @@
             require_once "controllers/login-user.php";
         }
     }
+
+    if(isset($_GET['question'])) {
+        require "controllers/all-answers.php";
+    }
 ?>

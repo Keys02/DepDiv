@@ -9,6 +9,7 @@
 
         try{
             $user->createNewUser($username, $email, $pwd);
+            header('Location: index.php?page=login');
         } catch (Exception $e) {
             echo $e->getMessage();
         }
