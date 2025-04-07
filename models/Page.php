@@ -28,7 +28,7 @@
             return $this->navigation;
         }
         /*############################
-        #           Getters
+        #           Setters
         ##############################*/
         public function setTitle(string $title) : void {
             $this-> title = $title;

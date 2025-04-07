@@ -12,15 +12,19 @@
             }
         }
 
-        public function logIn() {
+        public function getLoggedInUser(): string {
+            return $_SESSION['logged-in'];
+        }
+
+        public function logIn() : void {
             $_SESSION['logged-in'] = true;
         }
 
-        public function setLoggedInUser($username) {
+        public function setLoggedInUser($username) : void {
             $_SESSION['logged-in-user'] = $username;
         }
 
-        public function logOut() {
+        public function logOut() : void {
             $_SESSION['logged-in'] = false;
         }
     }

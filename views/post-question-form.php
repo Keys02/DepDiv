@@ -1,7 +1,7 @@
 <?php
     $template = 
                 "
-                    <form>
+                    <form method='post' action='index.php?page=post-question'>
                         <fieldset>
                             <legend><span>Post a question</span></legend>
                             <ul>

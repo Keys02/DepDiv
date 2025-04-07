@@ -1,7 +1,16 @@
 <?php
+    require_once "models/Entity.php";
     class Question extends Entity{
-        public function getAllQuestions() {
-            
+        public function getAllQuestions() : object {
+            $sql_query = "SELECT question_body, date_created, question_status FROM question;";
+            $exec_sql_stmt = self::executeSQLQuery($sql_query);
+            return $exec_sql_stmt;
+        }
+
+        public function postNewQuestion(string $question): void {
+            $sql_query = "INSERT INTO question (question_body) VALUES (?);";
+            $form_data = array($question);
+            self::executeSQLQuery($sql_query, $form_data);
         }
     }
 ?>

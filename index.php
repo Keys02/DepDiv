@@ -25,6 +25,5 @@
     $page->appendContent($template);
     include_once "views/page.php";
     echo $template;
-    
     $database = null;
 ?>

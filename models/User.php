@@ -24,8 +24,8 @@
         private function checkAvailable(string $username, string $email): bool {
             $sql_query = "SELECT username, email FROM user WHERE username = ? OR email = ?;";
             $form_data = array($username, $email);
-            $prepared_statement = self::executeSQLQuery($sql_query, $form_data);
-            if($prepared_statement->rowCount() === 0) {
+            $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
+            if($exec_sql_stmt->rowCount() === 0) {
                 return true;
             } else {
                 return false;
@@ -56,10 +56,10 @@
         public function checkCredentials(string $username, string $password) {
             $sql_query = "SELECT username, email, password FROM user WHERE username = ?;";
             $form_data = array($username);
-            $prepared_statement = self::executeSQLQuery($sql_query, $form_data);
+            $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
 
-            if($prepared_statement->rowCount() === 1) {
-                $user_data_from_db = $prepared_statement->fetchObject();
+            if($exec_sql_stmt->rowCount() === 1) {
+                $user_data_from_db = $exec_sql_stmt->fetchObject();
                 if(password_verify($password, $user_data_from_db->password)) {
                     return "Login successful";
                 } else {
