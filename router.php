@@ -6,6 +6,8 @@
     else {
         if($user_login_session->userIsLoggedIn()) {
             require_once "controllers/questions.php";
+        } else {
+            require_once "controllers/login-user.php";
         }
     }
 ?>

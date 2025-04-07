@@ -4,6 +4,7 @@
     }
     $template = "
                     <section>
+                        <h2>Questions</h2>
                         <ul>
                 ";
     

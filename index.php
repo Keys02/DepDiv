@@ -6,7 +6,6 @@
     $user_login_session = new UserSession();
 
     $page = new Page("DepDiv");
-    $page->setContent("<h1>Questions</h1>");
 
     include_once "router.php";
     
