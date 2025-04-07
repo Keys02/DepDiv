@@ -4,7 +4,7 @@
             session_start();
         }
         
-        public function UserIsLoggedIn() {
+        public function userIsLoggedIn() {
             if(isset($_SESSION['logged-in']) && $_SESSION['logged-in'] === true) {
                 return true;
             } else {
@@ -12,20 +12,18 @@
             }
         }
 
-        public function getLoggedInUser(): string {
-            return $_SESSION['logged-in'];
+        public function getLoggedInUser(): int {
+            return $_SESSION['logged-in-user'];
         }
 
-        public function logIn() : void {
+        public function logIn(int $user_id): void {
             $_SESSION['logged-in'] = true;
-        }
-
-        public function setLoggedInUser($username) : void {
-            $_SESSION['logged-in-user'] = $username;
+            $_SESSION['logged-in-user'] = $user_id;
         }
 
         public function logOut() : void {
             $_SESSION['logged-in'] = false;
+            $_SESSION['logged-in-user'] = null;
         }
     }
 ?>

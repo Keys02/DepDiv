@@ -5,14 +5,13 @@
     if(isset($_POST['username']) && isset($_POST['pwd']) && isset($_POST['log-in'])) {
         $username = $_POST['username'];
         $pwd = $_POST['pwd'];
-        $login_status_msg = $user->checkCredentials($username, $pwd);
+        $login_status_msg = $user->loginUser($username, $pwd);
 
         if($login_status_msg === "Login successful") {
-            $user_login_session->logIn();
-            $user_login_session->setLoggedInUser($username);
             header('Location: index.php');
-        } else {
+        } else if("Password is incorrect") {
             echo $login_status_msg;
+            include_once "views/user-login-form.php";
         }
     } else {
         include_once "views/user-login-form.php";

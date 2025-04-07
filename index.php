@@ -10,7 +10,7 @@
 
     include_once "router.php";
     
-    if($user_login_session->UserIsLoggedIn()) {
+    if($user_login_session->userIsLoggedIn()) {
         $page->setNavigation(
             "
                 <ul>

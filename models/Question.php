@@ -7,9 +7,9 @@
             return $exec_sql_stmt;
         }
 
-        public function postNewQuestion(string $question): void {
-            $sql_query = "INSERT INTO question (question_body) VALUES (?);";
-            $form_data = array($question);
+        public function postNewQuestion(string $question, int $user_id): void {
+            $sql_query = "INSERT INTO question (question_body, user_id) VALUES (?, ?);";
+            $form_data = array($question, $user_id);
             self::executeSQLQuery($sql_query, $form_data);
         }
     }
