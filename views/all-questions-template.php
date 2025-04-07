@@ -1,12 +1,21 @@
 <?php
-    
-    $template = 
-                "
+    if(isset($questions_from_db) === false) {
+        $question_from_db = "";
+    }
+    $template = "
                     <section>
                         <ul>
-                            <li>
-                                <a>I am now learning php and I want to ask what's the difference between the trigger_error() function and the throw new Exception()</a>
-                            </li>
+                ";
+    
+    while($question_record = $questions_from_db->fetchObject()) {
+        $template .= "
+                        <li>
+                            <a href='index.php?question={$question_record->question_id}'>{$question_record->question_body}</a>
+                        </li>
+                    ";
+    }
+
+    $template .= "
                         </ul>
                     </section>    
                 "
