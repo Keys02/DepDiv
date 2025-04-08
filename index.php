@@ -25,7 +25,7 @@
                 </ul>
             "
         );
-        require_once "controllers/logout-user.php";
+        require "controllers/logout-user.php";
     }
 
     $page->appendContent($template);
