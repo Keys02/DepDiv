@@ -1,6 +1,5 @@
 <?php
     include_once "views/qtns-into-template.php";
-    
     if(isset($questions_from_db) === false) {
         $question_from_db = "";
     }

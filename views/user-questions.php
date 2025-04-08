@@ -5,13 +5,13 @@
                         <a href='index.php?page=post-question'>Post a question</a>
                     ";
     } else {
-        include_once "views/qtns-into-template.php";
+        // include_once "views/qtns-into-template.php";
         $template = "
                         <h2>My questions</h2>
                         <ul>
                     ";
 
-        $template = insert_qtns_into_template($user_questions_from_db, $template);
+        $template = insert_qtns_into_template($user_questions_from_db, $template, $current_page);
     
         $template .= "
                         </ul>
