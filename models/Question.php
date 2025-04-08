@@ -18,5 +18,19 @@
             $form_data = array($question, $user_id);
             self::executeSQLQuery($sql_query, $form_data);
         }
+
+        public function getUserQuestions(int $user_id) : object {
+            $sql_query = "SELECT 
+                          question_id, 
+                          question_body, 
+                          date_created, 
+                          question_status 
+                          FROM question 
+                          WHERE user_id = ?
+                          ORDER BY question_id DESC;";
+            $form_data = array($user_id);
+            $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
+            return $exec_sql_stmt;
+        }
     }
 ?>

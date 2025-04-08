@@ -14,5 +14,6 @@
             $form_data = array($answer_body, $question_id, $user_id);
             self::executeSQLQuery($sql_query, $form_data);
         }
+
     }
 ?>
