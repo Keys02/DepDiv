@@ -14,4 +14,8 @@
     if(isset($_GET['qtn'])) {
         require "controllers/all-answers.php";
     }
+
+    if(isset($_GET['q'])) {
+        require "controllers/search-question.php";
+    }
 ?>

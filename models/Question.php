@@ -32,5 +32,20 @@
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
             return $exec_sql_stmt;
         }
+
+        public function searchQuestion(string $search_query) {
+            $sql_query = "SELECT 
+                          question_id, 
+                          question_body, 
+                          date_created, 
+                          question_status 
+                          FROM question 
+                          WHERE question_body LIKE ?
+                          ORDER BY question_id DESC;";
+
+            $form_data = array("%$search_query%");
+            $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
+            return $exec_sql_stmt;
+        }
     }
 ?>

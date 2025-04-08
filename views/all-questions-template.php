@@ -3,9 +3,8 @@
         $question_from_db = "";
     }
     $template = "
-                    <section>
-                        <h2>Questions</h2>
-                        <ul>
+                    <h2>Questions</h2>
+                    <ul>
                 ";
     
     while($question_record = $questions_from_db->fetchObject()) {
@@ -17,7 +16,6 @@
     }
 
     $template .= "
-                        </ul>
-                    </section>    
+                    </ul>
                 "
 ?>
