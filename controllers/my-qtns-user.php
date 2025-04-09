@@ -6,5 +6,5 @@
     $current_page = $_GET['page'];
     $user_id = $user_login_session->getLoggedInUser();
     $user_questions_from_db = $question->getUserQuestions($user_id);
-    include "views/user-questions.php";
+    include "views/user-qtns-template.php";
 ?>

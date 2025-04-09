@@ -2,7 +2,7 @@
     require_once "models/Answer.php";
     $answer = new Answer($database);
     
-    if(isset($_GET['qtn'])) {
+    if($_GET['page'] === "view-qtn"  && isset($_GET['qtn'])) {
         $question_id = $_GET['qtn'];
         $answers_from_db = $answer->getQuestionAnswers($question_id);
     }

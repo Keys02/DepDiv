@@ -17,12 +17,12 @@
             header('Location: index.php');
         } else if($button_clicked === "Save" && $question_id !== 0) {
             $question->updateQuestion($question_id, $question_body);
-            header('Location: index.php?page=my-questions');
+            header('Location: index.php?page=my-qtns');
         }
     }
 
-    if(isset($_GET['id'])) {
-        $question_id = $_GET['id'];
+    if($_GET['page'] == "post-qtn" && isset($_GET['qtn'])) {
+        $question_id = $_GET['qtn'];
         $question_from_db = $question->getQuestionById($question_id);
     } else {
         $question_from_db = new StdClass;
@@ -30,5 +30,5 @@
         $question_from_db->question_body = "";
     }
 
-    include_once "views/post-question-form.php";
+    include_once "views/post-qtn-form.php";
 ?>

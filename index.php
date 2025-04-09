@@ -14,8 +14,8 @@
             "
                 <ul>
                     <li><a href='index.php'>Questions</a></li>
-                    <li><a href='index.php?page=post-question'>Post a question</a></li>
-                    <li><a href='index.php?page=my-questions'>My questions</a></li>
+                    <li><a href='index.php?page=post-qtn'>Post a question</a></li>
+                    <li><a href='index.php?page=my-qtns'>My questions</a></li>
                     <li>
                         <form method='get' action='index.php'>
                             <input type='search' name='q' />
