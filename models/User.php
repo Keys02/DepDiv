@@ -3,22 +3,30 @@
 
     class User extends Entity{
 
-        private function validatePassword(string $pwd) : bool {
-            $match_password = preg_match("#^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@-])[a-zA-Z0-9!@_-]{8,}$#", $pwd); // Check if there is at least one uppercase, lowercase and one of these special characters (!@_-)
-            $check_length = strlen($pwd) >= 8;
-            if($match_password && $check_length) {
-                return true;
+        private function validatePassword(string $pwd, string $confirm_pwd) : bool {
+            if($pwd === $confirm_pwd) {
+                $match_password = preg_match("#^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@-])[a-zA-Z0-9!@_-]{8,}$#", $pwd); // Check if there is at least one uppercase, lowercase and one of these special characters (!@_-)
+                $check_length = strlen($pwd) >= 8;
+                if($check_length) {
+                    if($match_password) {
+                        return true;
+                    } else {
+                        throw new Exception("Password must contain uppercase, lowercase and one of these special characters [!@_-]");
+                    }
+                } else {
+                    throw new Exception("Password is less than 8 characters");
+                }
             } else {
-                return false;
+                throw new Exception("Password is different from the first entered password");
             }
         }
 
         private function validateUsername(string $username) : bool {
-            $match_username = preg_match("#^[A-Za-z]\w*$#", $username);
+            $match_username = preg_match("#^[A-Za-z]\w{3,30}$#", $username);
             if($match_username) {
                 return true;
             } else {
-                return false;
+                throw new Exception("Username should only start with an alphabet");
             }
         }
 
@@ -33,9 +41,9 @@
             }
         }
 
-        public function createNewUser(string $username, string $email ,string $password) {
+        public function createNewUser(string $username, string $email ,string $password, string $confirm_password) {
             $valid_username = $this->validateUsername($username);
-            $valid_pwd = $this->validatePassword($password);
+            $valid_pwd = $this->validatePassword($password, $confirm_password);
             $valid_email = filter_var($email, FILTER_VALIDATE_EMAIL);
             if($valid_username && $valid_pwd && $valid_email) {
                 $user_not_available = $this->checkavailable($username, $email);
