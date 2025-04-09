@@ -2,10 +2,9 @@
     if($user_questions_from_db->rowCount() === 0) {
         $template = "
                         <h1>No question found</h1>
-                        <a href='index.php?page=post-question'>Post a question</a>
+                        <a href='index.php?page=post-question' role='button'>Post a question</a>
                     ";
     } else {
-        // include_once "views/qtns-into-template.php";
         $template = "
                         <h2>My questions</h2>
                         <ul>

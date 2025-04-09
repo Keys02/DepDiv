@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
     $template = "
-                    <form method='post' action='index.php?page=edit-question &id='>
+                    <form method='post' action='index.php?page=post-question&id=$question_id'>
                         <input type='hidden' name='user-id' value='{$question_id}' />
                         <fieldset>
                             <legend><span>Post a question</span></legend>
@@ -16,4 +16,4 @@
                         </fieldset>
                     </form>
                 ";
-?>
+?> -->

@@ -5,7 +5,7 @@
                 $template .= "
                                 <li>
                                     <a href='index.php?qtn={$question_record->question_id}'>{$question_record->question_body}</a>
-                                    <a href='index.php?page=edit-question&id={$question_record->question_id}'>Edit</a>
+                                    <a href='index.php?page=post-question&id={$question_record->question_id}'>Edit</a>
                                 </li>
                             ";
             }
