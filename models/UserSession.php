@@ -22,8 +22,7 @@
         }
 
         public function logOut() : void {
-            $_SESSION['logged-in'] = false;
-            $_SESSION['logged-in-user'] = null;
+            session_unset();
         }
     }
 ?>
