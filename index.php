@@ -19,7 +19,7 @@
                     <li>
                         <form method='get' action='index.php'>
                             <input type='search' name='q' />
-                            <input type='submit'/>
+                            <input type='submit' value='search'/>
                         </form>
                     </li>
                 </ul>

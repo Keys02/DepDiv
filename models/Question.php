@@ -47,5 +47,15 @@
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
             return $exec_sql_stmt;
         }
+
+        public function getQuestionById(int $question_id) {
+            $sql_query = "SELECT question_body FROM question WHERE question_id = ?;";
+            $form_data = array("$question_id");
+            $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
+
+            if($exec_sql_stmt->rowCount() === 1) {
+                return $exec_sql_stmt->fetchObject();
+            }
+        }
     }
 ?>
