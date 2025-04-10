@@ -12,10 +12,10 @@
         $question_id = $_POST['question-id'];
         $question_body = $_POST['qtn'];
 
-        if($button_clicked === "Post Question" && $question_id === 0) {            
+        if($button_clicked === "Post Question" && $question_id === '0') {            
             $question->postNewQuestion($question_body, $logged_in_user_id);
             header('Location: index.php');
-        } else if($button_clicked === "Save" && $question_id !== 0) {
+        } else if($button_clicked === "Save" && $question_id !== '0') {
             $question->updateQuestion($question_id, $question_body);
             header('Location: index.php?page=my-qtns');
         }

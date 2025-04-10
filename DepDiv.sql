@@ -29,7 +29,7 @@ CREATE TABLE question_status (
     status VARCHAR(5) NOT NULL DEFAULT "Open",
     CONSTRAINT pk_status PRIMARY KEY(status_id),
     CONSTRAINT status_check CHECK (status IN ('Open', 'Close'))
-)
+);
 
 -- Insert the two lookup values in the question_status table
 INSERT INTO question_status (status) VALUES 
