@@ -1,5 +1,6 @@
 <?php
     require_once "models/Entity.php";
+    
     class Question extends Entity{
         public function getAllQuestions() : object {
             $sql_query = "SELECT 
