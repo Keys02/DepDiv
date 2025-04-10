@@ -34,14 +34,14 @@
         }
 
         public function searchQuestion(string $search_query) : object {
-            $sql_query = "SELECT 
+            $sql_query = "SELECT
                           question_id, 
                           question_body, 
                           date_created, 
                           question_status 
                           FROM question 
-                          WHERE question_body LIKE ?
-                          ORDER BY question_id DESC;";
+                          WHERE MATCH (question_body)
+                          AGAINST(? IN NATURAL LANGUAGE MODE);";
 
             $form_data = array("%$search_query%");
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
