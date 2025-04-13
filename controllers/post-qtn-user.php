@@ -14,10 +14,10 @@
 
         if($button_clicked === "Post Question" && $question_id === '0') {            
             $question->postNewQuestion($question_body, $logged_in_user_id);
-            header('Location: index.php');
+            header("Location: index.php?route=/user/$logged_in_user_id");
         } else if($button_clicked === "Save" && $question_id !== '0') {
             $question->updateQuestion($question_id, $question_body);
-            header("Location: index.php?route=/user/{$logged_in_user}/my-questions");
+            header("Location: index.php?route=/user/{$logged_in_user_id}/my-questions");
         }
     }
 
