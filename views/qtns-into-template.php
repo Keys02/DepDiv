@@ -7,7 +7,7 @@
                 $template .= "
                                 <li>
                                     <a href='index.php?route=/user/{$current_user}/question/{$question_record->question_id}'>{$question_record->question_body}</a>
-                                    <a href='index.php?route=/user/{$current_user}/post-question&question={$question_record->question_id}'>Edit</a>
+                                    <a href='index.php?route=/user/{$current_user}/editor&question={$question_record->question_id}'>Edit</a>
                                 </li>
                             ";
             }

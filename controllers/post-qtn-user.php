@@ -24,7 +24,7 @@
     $exploded_url = explode('/', $current_page);
     $current_page = $exploded_url[3];
 
-    if($_GET['route'] == "/user/1/post-question" && isset($_GET['question'])) {
+    if($_GET['route'] == "/user/1/editor" && isset($_GET['question'])) {
         $question_id = $_GET['question'];
         $question_from_db = $question->getQuestionById($question_id);
     } else {

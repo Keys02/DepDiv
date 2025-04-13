@@ -16,7 +16,7 @@
             "
                 <ul>
                     <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}'>Questions</a></li>
-                    <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}/post-question'>Post a question</a></li>
+                    <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}/editor'>Post a question</a></li>
                     <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}/my-questions'>My questions</a></li>
                     <li>
                         <form method='get' action='index.php'>

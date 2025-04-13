@@ -11,7 +11,7 @@
             case "/login";
                 include_once "controllers/login-user.php";
                 break;
-            case "/user/{$user_login_session->getLoggedInUser()}/post-question";
+            case "/user/{$user_login_session->getLoggedInUser()}/editor";
                 include_once "controllers/post-qtn-user.php";
                 break;
             case "/user/{$user_login_session->getLoggedInUser()}/my-questions";
