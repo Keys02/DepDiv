@@ -8,7 +8,7 @@
         $login_status_msg = $user->loginUser($username, $pwd);
 
         if($login_status_msg === "Login successful") {
-            header('Location: index.php');
+            header("Location: index.php");
         } else if("Password is incorrect") {
             echo $login_status_msg;
             include_once "views/user-login-form.php";
