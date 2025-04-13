@@ -1,7 +1,6 @@
 <?php
     require_once "models/Question.php";
     include "views/qtns-into-template.php";
-    
     $question = new Question($database);
     $exploded_url = explode('/', $current_page);
     $current_page = $exploded_url[3];
