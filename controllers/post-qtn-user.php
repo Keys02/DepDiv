@@ -17,12 +17,15 @@
             header('Location: index.php');
         } else if($button_clicked === "Save" && $question_id !== '0') {
             $question->updateQuestion($question_id, $question_body);
-            header('Location: index.php?page=my-qtns');
+            header("Location: index.php?route=/user/{$logged_in_user}/my-questions");
         }
     }
 
-    if($_GET['page'] == "post-qtn" && isset($_GET['qtn'])) {
-        $question_id = $_GET['qtn'];
+    $exploded_url = explode('/', $current_page);
+    $current_page = $exploded_url[3];
+
+    if($_GET['route'] == "/user/1/post-question" && isset($_GET['question'])) {
+        $question_id = $_GET['question'];
         $question_from_db = $question->getQuestionById($question_id);
     } else {
         $question_from_db = new StdClass;

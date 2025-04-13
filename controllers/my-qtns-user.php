@@ -3,7 +3,8 @@
     include "views/qtns-into-template.php";
     
     $question = new Question($database);
-    $current_page = $_GET['page'];
+    $exploded_url = explode('/', $current_page);
+    $current_page = $exploded_url[3];
     $user_id = $user_login_session->getLoggedInUser();
     $user_questions_from_db = $question->getUserQuestions($user_id);
     include "views/user-qtns-template.php";
