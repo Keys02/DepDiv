@@ -6,8 +6,8 @@
         $username = $_POST['username'];
         $pwd = $_POST['pwd'];
         $login_status_msg = $user->loginUser($username, $pwd);
-        $logged_in_user = $user_login_session->getLoggedInUser();
         if($login_status_msg === "Login successful") {
+            $logged_in_user = $user_login_session->getLoggedInUser();
             header("Location: index.php?route=/user/$logged_in_user");
         } else if("Password is incorrect") {
             echo $login_status_msg;
