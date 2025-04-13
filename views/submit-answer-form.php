@@ -1,6 +1,6 @@
 <?php
     $template .= "
-        <form method='post' action='index.php?page=view-qtn&qtn=$question_id'>
+        <form method='post' action='index.php?route=/user/$user_id/question/$question_id'>
         <input type='hidden' value='{$user_login_session->getLoggedInUser()}'>
             <fieldset>
                 <ul>

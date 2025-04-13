@@ -2,8 +2,6 @@
     if(isset($answers_from_db) === false) {
         $template = "This question is yet to be answered";
     }else {
-        include_once "views/qtns-into-template.php";
-
         $template = "<ul>";
 
         while($answer_row = $answers_from_db->fetchObject()) {

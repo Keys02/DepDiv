@@ -24,7 +24,7 @@
                                     <input type='submit' name='sign-up' value='Sign Up' />
                                 </li>
                                 <li>
-                                    <a href='index.php?page=login' role='button'>Already have an account</a>
+                                    <a href='index.php?route=/login' role='button'>Already have an account</a>
                                 </li>
                             </ul>
                         </fieldset>

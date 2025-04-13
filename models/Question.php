@@ -2,6 +2,7 @@
     require_once "models/Entity.php";
     
     class Question extends Entity{
+        
         public function getAllQuestions() : object {
             $sql_query = "SELECT 
                           question_id, 
@@ -44,7 +45,7 @@
                           WHERE MATCH (question_body)
                           AGAINST(? IN NATURAL LANGUAGE MODE);";
 
-            $form_data = array("%$search_query%");
+            $form_data = array("$search_query");
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
             return $exec_sql_stmt;
         }

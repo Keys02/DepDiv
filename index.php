@@ -1,4 +1,6 @@
 <?php
+    $template = ''; // template default value;
+
     require_once "models/Page.php";
     require_once "models/Database.php";
     require_once "models/UserSession.php";
@@ -13,12 +15,12 @@
         $page->setNavigation(
             "
                 <ul>
-                    <li><a href='index.php'>Questions</a></li>
-                    <li><a href='index.php?page=post-qtn'>Post a question</a></li>
-                    <li><a href='index.php?page=my-qtns'>My questions</a></li>
+                    <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}'>Questions</a></li>
+                    <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}/editor'>Post a question</a></li>
+                    <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}/my-questions'>My questions</a></li>
                     <li>
                         <form method='get' action='index.php'>
-                            <input type='search' name='q' />
+                            <input type='search' name='search-query'/>
                             <input type='submit' value='search'/>
                         </form>
                     </li>
@@ -31,5 +33,6 @@
     $page->appendContent($template);
     include_once "views/page.php";
     echo $template;
+
     $database = null;
 ?>

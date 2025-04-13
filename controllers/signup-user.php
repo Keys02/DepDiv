@@ -10,7 +10,7 @@
 
         try{
             $user->createNewUser($username, $email, $pwd, $confirm_pwd);
-            header('Location: index.php?page=login');
+            header('Location: index.php?route=/login');
         } catch (Exception $e) {
             echo $e->getMessage();
         }
