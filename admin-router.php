@@ -6,10 +6,10 @@
 
         switch($current_page) {
             case "/signup";
-                include_once "controllers/signup-user.php";
+                include_once "controllers/admin/signup-admin.php";
                 break;
             case "/login";
-                include_once "controllers/login-user.php";
+                include_once "controllers/admin/login-admin.php";
                 break;
             case "/user/{$user_login_session->getLoggedInUser()}/editor";
                 include_once "controllers/post-qtn-user.php";
@@ -27,6 +27,6 @@
         require "controllers/search-qtn.php";
     }
     else {
-        require_once "controllers/login-user.php";
+        require_once "controllers/admin/login-admin.php";
     }
 ?>
