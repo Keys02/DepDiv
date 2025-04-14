@@ -1,6 +1,6 @@
 <!-- <?php
     $template = "
-                    <form method='post' action='index.php?page=post-qtn&id=$question_id'>
+                    <form method='post' action='index.php?route=/editor&question=$question_id'>
                         <input type='hidden' name='user-id' value='{$question_id}' />
                         <fieldset>
                             <legend><span>Post a question</span></legend>
