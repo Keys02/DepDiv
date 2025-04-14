@@ -63,16 +63,16 @@
         }
 
         public function loginAdmin(string $username, string $password): string {
-            $sql_query = "SELECT user_id, password FROM admin WHERE username = ?;";
+            $sql_query = "SELECT admin_id, password FROM admin WHERE username = ?;";
             $form_data = array($username);
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
 
             if($exec_sql_stmt->rowCount() === 1) {
                 $user_data_from_db = $exec_sql_stmt->fetchObject();
                 if(password_verify($password, $user_data_from_db->password)) {
-                    require_once "models/UserSession.php";
-                    $user_login_session = new UserSession();
-                    $user_login_session->logIn($user_data_from_db->user_id);
+                    require_once "models/AdminSession.php";
+                    $user_login_session = new AdminSession();
+                    $user_login_session->logInAdmin($user_data_from_db->admin_id);
                     return "Login successful";
                 } else {
                     return "Password is incorrect";

@@ -1,15 +1,18 @@
 <?php
     if(isset($_GET['route'])) {
         $current_page = $_GET['route'];
-        $exploded_url = explode('/', $_GET['route']);
-        $question_id = $exploded_url[4] ?? null;
+        $exploded_route = explode('/', $_GET['route']);
+        $question_id = $exploded_route[4] ?? null;
 
         switch($current_page) {
-            case "/signup";
+            case "/signup-guest";
                 include_once "controllers/signup-user.php";
                 break;
             case "/login";
                 include_once "controllers/login-user.php";
+                break;
+            case "/signup-admin";
+                include_once "controllers/admin/signup-admin.php";
                 break;
             case "/user/{$user_login_session->getLoggedInUser()}/editor";
                 include_once "controllers/post-qtn-user.php";
@@ -27,6 +30,14 @@
         require "controllers/search-qtn.php";
     }
     else {
-        require_once "controllers/login-user.php";
+        $uri = $_SERVER['REQUEST_URI'];
+        $exploded_uri = explode('/', $uri);
+        $role_page = $exploded_uri = $exploded_uri[2];
+        
+        if($role_page === 'admin.php') {
+            require_once "controllers/admin/signup-admin.php";
+        } elseif($role_page === 'index.php') {
+            require_once "controllers/login-user.php";
+        }
     }
 ?>

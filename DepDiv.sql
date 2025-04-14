@@ -2,26 +2,40 @@ CREATE DATABASE depdiv;
 
 USE depdiv;
 
+CREATE TABLE user_role (
+    role_id INT AUTO_INCREMENT,
+    role VARCHAR(5) NOT NULL,
+    CONSTRAINT pk_role PRIMARY KEY(role_id),
+    CONSTRAINT role_check CHECK (role IN ('Admin', 'Guest'))
+);
+
+INSERT INTO user_role (role) VALUES 
+                                    ('guest'),
+                                    ('admin');
+
 CREATE TABLE user (
     user_id INT AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
     email VARCHAR(320) NOT NULL,
     password VARCHAR(60) NOT NULL,
+    role_id INT NOT NULL,
+    avatar VARCHAR(1000),
+    CONSTRAINT fk_role FOREIGN KEY(role_id) REFERENCES user_role(role_id),
     CONSTRAINT pk_user PRIMARY KEY(user_id),
     CONSTRAINT uniq_username UNIQUE(username),
     CONSTRAINT uniq_email UNIQUE(email)
 );
 
 
-CREATE TABLE admin (
-    admin_id INT AUTO_INCREMENT,
-    username VARCHAR(50) NOT NULL,
-    email VARCHAR(320) NOT NULL,
-    password VARCHAR(60) NOT NULL,
-    CONSTRAINT pk_admin PRIMARY KEY(admin_id),
-    CONSTRAINT uniq_username UNIQUE(username),
-    CONSTRAINT uniq_email UNIQUE(email)
-);
+-- CREATE TABLE admin (
+--     admin_id INT AUTO_INCREMENT,
+--     username VARCHAR(50) NOT NULL,
+--     email VARCHAR(320) NOT NULL,
+--     password VARCHAR(60) NOT NULL,
+--     CONSTRAINT pk_admin PRIMARY KEY(admin_id),
+--     CONSTRAINT uniq_username UNIQUE(username),
+--     CONSTRAINT uniq_email UNIQUE(email)
+-- );
 
 -- Lookup table for the question_status: Categorical data
 CREATE TABLE question_status (
@@ -43,8 +57,8 @@ CREATE TABLE question (
     question_status INT NOT NULL DEFAULT 1,
     user_id INT NOT NULL,
     CONSTRAINT pk_question PRIMARY KEY(question_id),
-    CONSTRAINT fk_status_id FOREIGN KEY (question_status) REFERENCES question_status(status_id),
-    CONSTRAINT fk_question_table_user_id FOREIGN KEY (user_id) REFERENCES user(user_id)
+    CONSTRAINT fk_status FOREIGN KEY (question_status) REFERENCES question_status(status_id),
+    CONSTRAINT fk_question_table_user FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
 CREATE TABLE answer (
@@ -54,8 +68,8 @@ CREATE TABLE answer (
     user_id INT NOT NULL,
     time_sent DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT pk_answer PRIMARY KEY(answer_id),
-    CONSTRAINT fk_question_id FOREIGN KEY(question_id) REFERENCES question(question_id),
-    CONSTRAINT fk_answer_table_user_id FOREIGN KEY(user_id) REFERENCES user(user_id)
+    CONSTRAINT fk_question FOREIGN KEY(question_id) REFERENCES question(question_id),
+    CONSTRAINT fk_answer_table_user FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
 
 -- Creating an index for the question_body in question table

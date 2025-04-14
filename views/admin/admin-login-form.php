@@ -17,7 +17,7 @@
                                 <input type='submit' value='Log In' name='log-in' />
                             </li>
                             <li>
-                                <a href='admin.php?route=/signup' role='button'>Create new account</a>
+                                <a href='admin.php?route=/signup-admin' role='button'>Create new account</a>
                             </li>
                         </fieldset>
                     </form>

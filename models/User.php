@@ -41,7 +41,7 @@
             }
         }
 
-        public function createNewUser(string $username, string $email ,string $password, string $confirm_password) {
+        public function createNewUser(string $username, string $email ,string $password, string $confirm_password, string $role) {
             $valid_username = $this->validateUsername($username);
             $valid_pwd = $this->validatePassword($password, $confirm_password);
             $valid_email = filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -50,8 +50,13 @@
                 if($user_not_available) {
                     $sanitized_username = htmlspecialchars($username);
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                    $sql_query = "INSERT INTO user (username, email, password) VALUES (?, ?, ?);";
-                    $form_data = array($sanitized_username, $email, $hashed_password);
+                    if($role === "admin") {
+                        $sql_query = "INSERT INTO user (username, email, password, role_id) VALUES (?, ?, ?, ?);";
+                        $form_data = array($sanitized_username, $email, $hashed_password, 2);
+                    } else {
+                        $sql_query = "INSERT INTO user (username, email, password, role_id) VALUES (?, ?, ?, ?);";
+                        $form_data = array($sanitized_username, $email, $hashed_password, 1);
+                    }
                     self::executeSQLQuery($sql_query, $form_data) ;
                 } else {
                     throw new Exception("Username or email already exists");
@@ -68,6 +73,7 @@
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
 
             if($exec_sql_stmt->rowCount() === 1) {
+                echo "You found a match in the database";
                 $user_data_from_db = $exec_sql_stmt->fetchObject();
                 if(password_verify($password, $user_data_from_db->password)) {
                     require_once "models/UserSession.php";

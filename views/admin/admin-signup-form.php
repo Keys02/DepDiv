@@ -1,6 +1,6 @@
 <?php
     $template = " 
-                    <form method='post' action='admin.php?route=/signup'>
+                    <form method='post' action='admin.php?route=/signup-admin'>
                         <fieldset>
                             <legend>Create admin account</legend>
                             <ul>
@@ -24,7 +24,7 @@
                                     <input type='submit' name='sign-up' value='Sign Up' />
                                 </li>
                                 <li>
-                                    <a href='admin.php?route=/login' role='button'>Already have an account</a>
+                                    <a href='index.php?route=/login' role='button'>Already have an account</a>
                                 </li>
                             </ul>
                         </fieldset>

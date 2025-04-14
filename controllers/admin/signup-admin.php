@@ -1,6 +1,6 @@
 <?php
-    require_once "models/Admin.php";
-    $admin = new Admin($database);
+    require_once "models/User.php";
+    $user = new User($database);
 
     if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['confirm-pwd']) && isset($_POST['sign-up'])) {
         $username = $_POST['username'];
@@ -8,8 +8,8 @@
         $pwd = $_POST['pwd'];
         $confirm_pwd = $_POST['confirm-pwd'];
         try{
-            $admin->createNewAdmin($username, $email, $pwd, $confirm_pwd);
-            header('Location: admin.php?route=/login');
+            $user->createNewUser($username, $email, $pwd, $confirm_pwd, "admin");
+            header('Location: index.php?route=/login');
         } catch (Exception $e) {
             echo $e->getMessage();
         }

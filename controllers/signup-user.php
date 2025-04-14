@@ -9,7 +9,7 @@
         $confirm_pwd = $_POST['confirm-pwd'];
 
         try{
-            $user->createNewUser($username, $email, $pwd, $confirm_pwd);
+            $user->createNewUser($username, $email, $pwd, $confirm_pwd, "guest");
             header('Location: index.php?route=/login');
         } catch (Exception $e) {
             echo $e->getMessage();
