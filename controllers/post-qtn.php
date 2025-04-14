@@ -33,5 +33,5 @@
         $question_from_db->question_body = "";
     }
 
-    include_once "views/post-qtn-form.php";
+    include_once "views/editor.php";
 ?>
