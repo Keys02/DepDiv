@@ -24,8 +24,11 @@
             case "/user/{$logged_in_user_id}/question/$question_id";
                 include_once "controllers/view-qtn.php";
                 break;
-            default;
+            case "/user/{$logged_in_user_id}";
                 include_once "controllers/questions.php";
+                break;
+            default;
+                include_once "controllers/404.php";
         }
     } else if(isset($_GET['search-query'])) {
         require "controllers/search-qtn.php";
