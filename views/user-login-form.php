@@ -1,6 +1,6 @@
 <?php
     $template = " 
-                    <form method='post' action='index.php?page=login'>
+                    <form method='post' action='index.php?route=/login'>
                         <fieldset>
                             <legend>Login</legend>
                             <ul>
