@@ -14,5 +14,5 @@
     ";
     require_once "partials/_footer.php";
 
-    $template = $header . $main_content . $footer
+    $page_view = $header . $main_content . $footer
 ?>

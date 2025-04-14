@@ -21,10 +21,7 @@
         }
     }
 
-    $exploded_url = explode('/', $current_page);
-    $current_page = $exploded_url[3];
-
-    if($_GET['route'] == "/user/1/editor" && isset($_GET['question'])) {
+    if($_GET['route'] == "/user/$logged_in_user_id/editor" && isset($_GET['question'])) {
         $question_id = $_GET['question'];
         $question_from_db = $question->getQuestionById($question_id);
     } else {
@@ -33,5 +30,5 @@
         $question_from_db->question_body = "";
     }
 
-    include_once "views/post-qtn-form.php";
+    include_once "views/editor.php";
 ?>

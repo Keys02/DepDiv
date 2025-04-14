@@ -1,8 +1,8 @@
 <?php
     $template = " 
-                    <form method='post' action='index.php?page=signup'>
+                    <form method='post' action='admin.php?route=/signup-admin'>
                         <fieldset>
-                            <legend>Create an account</legend>
+                            <legend>Create admin account</legend>
                             <ul>
                                 <li>
                                     <label for='username'>Username</label>

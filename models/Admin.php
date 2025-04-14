@@ -1,8 +1,8 @@
 <?php
-    require_once "models/Entity.php";
-
-    class User extends Entity{
-
+    require "models/Entity.php";
+    
+    class Admin extends Entity {
+        
         private function validatePassword(string $pwd, string $confirm_pwd) : bool {
             if($pwd === $confirm_pwd) {
                 $match_password = preg_match("#^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@-])[a-zA-Z0-9!@_-]{8,}$#", $pwd); // Check if there is at least one uppercase, lowercase and one of these special characters (!@_-)
@@ -31,7 +31,7 @@
         }
 
         private function checkAvailable(string $username, string $email): bool {
-            $sql_query = "SELECT username, email FROM user WHERE username = ? OR email = ?;";
+            $sql_query = "SELECT username, email FROM admin WHERE username = ? OR email = ?;";
             $form_data = array($username, $email);
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
             if($exec_sql_stmt->rowCount() === 0) {
@@ -41,7 +41,7 @@
             }
         }
 
-        public function createNewUser(string $username, string $email ,string $password, string $confirm_password, string $role) {
+        public function createNewAdmin(string $username, string $email ,string $password, string $confirm_password) {
             $valid_username = $this->validateUsername($username);
             $valid_pwd = $this->validatePassword($password, $confirm_password);
             $valid_email = filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -50,13 +50,8 @@
                 if($user_not_available) {
                     $sanitized_username = htmlspecialchars($username);
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                    if($role === "admin") {
-                        $sql_query = "INSERT INTO user (username, email, password, role_id) VALUES (?, ?, ?, ?);";
-                        $form_data = array($sanitized_username, $email, $hashed_password, 2);
-                    } else {
-                        $sql_query = "INSERT INTO user (username, email, password, role_id) VALUES (?, ?, ?, ?);";
-                        $form_data = array($sanitized_username, $email, $hashed_password, 1);
-                    }
+                    $sql_query = "INSERT INTO admin (username, email, password) VALUES (?, ?, ?);";
+                    $form_data = array($sanitized_username, $email, $hashed_password);
                     self::executeSQLQuery($sql_query, $form_data) ;
                 } else {
                     throw new Exception("Username or email already exists");
@@ -67,18 +62,17 @@
 
         }
 
-        public function loginUser(string $username, string $password): string {
-            $sql_query = "SELECT user_id, password FROM user WHERE username = ?;";
+        public function loginAdmin(string $username, string $password): string {
+            $sql_query = "SELECT admin_id, password FROM admin WHERE username = ?;";
             $form_data = array($username);
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
 
             if($exec_sql_stmt->rowCount() === 1) {
-                echo "You found a match in the database";
                 $user_data_from_db = $exec_sql_stmt->fetchObject();
                 if(password_verify($password, $user_data_from_db->password)) {
-                    require_once "models/UserSession.php";
-                    $user_login_session = new UserSession();
-                    $user_login_session->logIn($user_data_from_db->user_id);
+                    require_once "models/AdminSession.php";
+                    $user_login_session = new AdminSession();
+                    $user_login_session->logInAdmin($user_data_from_db->admin_id);
                     return "Login successful";
                 } else {
                     return "Password is incorrect";

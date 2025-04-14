@@ -7,14 +7,13 @@
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
         $confirm_pwd = $_POST['confirm-pwd'];
-
         try{
-            $user->createNewUser($username, $email, $pwd, $confirm_pwd);
+            $user->createNewUser($username, $email, $pwd, $confirm_pwd, "admin");
             header('Location: index.php?route=/login');
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     }
 
-    include_once "views/user-signup-form.php";
+    include_once "views/admin/admin-signup-form.php";
 ?>
