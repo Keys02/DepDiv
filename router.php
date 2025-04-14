@@ -7,7 +7,7 @@
 
         switch($current_page) {
             case "/signup-guest";
-                include_once "controllers/signup-user.php";
+                include_once "controllers/signup-guest.php";
                 break;
             case "/login";
                 include_once "controllers/login-user.php";
@@ -40,7 +40,7 @@
         
         if($role_page === 'admin.php') {
             require_once "controllers/admin/signup-admin.php";
-        } elseif($role_page === 'index.php') {
+        } else if($role_page === 'index.php') {
             require_once "controllers/login-user.php";
         }
     }
