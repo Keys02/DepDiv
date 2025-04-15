@@ -96,7 +96,6 @@
                 $user_role_db = $exec_sql_stmt->fetchObject();
                 return $user_role_db;
             }
-
         }
     }
 ?>

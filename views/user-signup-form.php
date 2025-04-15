@@ -1,6 +1,6 @@
 <?php
     $template = " 
-                    <form method='post' action='index.php?page=signup'>
+                    <form method='post' action='index.php?route=/signup-guest'>
                         <fieldset>
                             <legend>Create an account</legend>
                             <ul>

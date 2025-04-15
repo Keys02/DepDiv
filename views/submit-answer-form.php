@@ -1,5 +1,6 @@
 <?php
-    $template .= "
+    if($question_from_db->question_status === 1) {
+        $template .= "
         <form method='post' action='index.php?route=/user/$user_id/question/$question_id'>
         <input type='hidden' value='{$user_login_session->getLoggedInUser()}'>
             <fieldset>
@@ -14,5 +15,8 @@
                 </ul>
             </fieldset>
         </form>
-    "
+    ";
+    } else {
+        $template .= "Question has been answered hence closed";
+    }
 ?>
