@@ -73,7 +73,6 @@
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
 
             if($exec_sql_stmt->rowCount() === 1) {
-                echo "You found a match in the database";
                 $user_data_from_db = $exec_sql_stmt->fetchObject();
                 if(password_verify($password, $user_data_from_db->password)) {
                     require_once "models/UserSession.php";
