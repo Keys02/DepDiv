@@ -4,13 +4,13 @@
         $exploded_route = explode('/', $_GET['route']);
         $question_id = $exploded_route[4] ?? null;
         $logged_in_user_id = $user_login_session->getLoggedInUser();
-
+        
         switch($current_page) {
-            case "/signup-guest";
-                include_once "controllers/signup-guest.php";
-                break;
             case "/login";
                 include_once "controllers/login-user.php";
+                break;
+            case "/signup-guest";
+                include_once "controllers/signup-guest.php";
                 break;
             case "/signup-admin";
                 include_once "controllers/admin/signup-admin.php";
@@ -40,7 +40,7 @@
         
         if($role_page === 'admin.php') {
             require_once "controllers/admin/signup-admin.php";
-        } else if($role_page === 'index.php') {
+        } else {
             require_once "controllers/login-user.php";
         }
     }

@@ -1,6 +1,5 @@
 <?php
     $template = ''; // template default value;
-
     require_once "models/Page.php";
     require_once "models/Database.php";
     require_once "models/UserSession.php";
@@ -12,12 +11,14 @@
     include_once "router.php";
     
     if($user_login_session->userIsLoggedIn()) {
+        $logged_in_user_id = $user_login_session->getLoggedInUser();
+
         $page->setNavigation(
             "
                 <ul>
-                    <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}'>Questions</a></li>
-                    <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}/editor'>Post a question</a></li>
-                    <li><a href='index.php?route=/user/{$user_login_session->getLoggedInUser()}/my-questions'>My questions</a></li>
+                    <li><a href='index.php?route=/user/{$logged_in_user_id}'>Questions</a></li>
+                    <li><a href='index.php?route=/user/{$logged_in_user_id}/editor'>Post a question</a></li>
+                    <li><a href='index.php?route=/user/{$logged_in_user_id}/my-questions'>My questions</a></li>
                     <li>
                         <form method='get' action='index.php'>
                             <input type='search' name='search-query'/>
