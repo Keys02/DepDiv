@@ -7,9 +7,9 @@
     $user_login_session = new UserSession();
 
     $page = new Page("DepDiv");
-
-    include_once "router.php";
     
+    include_once "router.php";
+
     if($user_login_session->userIsLoggedIn()) {
         $logged_in_user_id = $user_login_session->getLoggedInUser();
 

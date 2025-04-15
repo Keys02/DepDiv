@@ -3,7 +3,9 @@
         $current_page = $_GET['route'];
         $exploded_route = explode('/', $_GET['route']);
         $question_id = $exploded_route[4] ?? null;
-        $logged_in_user_id = $user_login_session->getLoggedInUser();
+        if($user_login_session->userIsLoggedIn()) {
+            $logged_in_user_id = $user_login_session->getLoggedInUser();
+        }
         
         switch($current_page) {
             case "/login";
