@@ -8,9 +8,11 @@
 
     $page = new Page("DepDiv");
     
-    include_once "router.php";
+    require_once "router.php";
 
     if($user_login_session->userIsLoggedIn()) {
+        include_once "controllers/upload-avatar.php";
+        
         $logged_in_user_id = $user_login_session->getLoggedInUser();
 
         $page->setNavigation(
@@ -25,9 +27,13 @@
                             <input type='submit' value='search'/>
                         </form>
                     </li>
+                    <li>
+                        $avatar_upload_form
+                    </li>
                 </ul>
             "
         );
+
         require "controllers/logout-user.php";
     }
 
