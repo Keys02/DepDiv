@@ -51,7 +51,7 @@
         }
 
         public function getQuestionById(int $question_id) : object {
-            $sql_query = "SELECT question_id, question_body FROM question WHERE question_id = ?;";
+            $sql_query = "SELECT question_id, question_body, question_status FROM question WHERE question_id = ?;";
             $form_data = array("$question_id");
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
 
@@ -65,6 +65,18 @@
         public function updateQuestion(int $question_id, string $question_body) : void {
             $sql_query = "UPDATE question SET question_body = ? WHERE question_id = ?;";
             $form_data = array($question_body, $question_id);
+            self::executeSQLQuery($sql_query, $form_data);
+        }
+
+        public function closeQuestion(int $question_id) {
+            $sql_query = "UPDATE question SET question_status = ? WHERE question_id = ?;";
+            $form_data = array(2, $question_id);
+            self::executeSQLQuery($sql_query, $form_data);
+        }
+
+        public function reopenQuestion(int $question_id) {
+            $sql_query = "UPDATE question SET question_status = ? WHERE question_id = ?;";
+            $form_data = array(1, $question_id);
             self::executeSQLQuery($sql_query, $form_data);
         }
     }
