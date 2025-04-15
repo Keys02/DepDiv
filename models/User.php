@@ -86,5 +86,17 @@
                 return "Username is invalid";
             }
         }
+
+        public function getUserRole(int $user_id) {
+            $sql_query = "SELECT role_id FROM user WHERE user_id = ?;";
+            $form_data = array($user_id);
+            $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
+
+            if($exec_sql_stmt->rowCount() === 1) {
+                $user_role_db = $exec_sql_stmt->fetchObject();
+                return $user_role_db;
+            }
+
+        }
     }
 ?>
