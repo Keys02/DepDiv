@@ -58,7 +58,7 @@
             if($exec_sql_stmt->rowCount() === 1) {
                 return $exec_sql_stmt->fetchObject();
             } else {
-                return new stdClass;
+                return new stdClass();
             }
         }
 

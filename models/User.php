@@ -98,10 +98,22 @@
             }
         }
 
-        public function uploadAvatar(string $avatar_img_name, int $user_id) {
+        public function uploadAvatar(string $avatar_img_name, int $user_id) : void {
             $sql_query = "UPDATE user SET avatar = ? WHERE user_id = ?;";
             $form_data = array($avatar_img_name, $user_id);
             self::executeSQLQuery($sql_query, $form_data);
+        }
+
+        public function getUserAvatar(string $user_id) : ?string {
+            $sql_query = "SELECT avatar FROM user WHERE user_id = ?;";
+            $form_data = array($user_id);
+            $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
+            if($exec_sql_stmt->rowCount() === 1) {
+                $user_avatar_from_db = $exec_sql_stmt->fetchObject();
+                return $user_avatar_from_db->avatar;
+            } else {
+                return null;
+            }
         }
     }
 ?>

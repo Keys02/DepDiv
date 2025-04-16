@@ -1,12 +1,12 @@
 <?php
+    include_once "models/User.php";
+    $user = new User($database);
     $logged_in_user_id = $user_login_session->getLoggedInUser();
 
     function upload(){
         include_once "models/ImagesUploader.php";
-        global $database;
         global $logged_in_user_id;
-        include_once "models/User.php";
-        $user = new User($database);
+        global $user;
 
         $uploader = new ImagesUploader('avatar');
 
@@ -24,5 +24,8 @@
         upload();
         header("Location: index.php?route=/user/$logged_in_user_id");
     }
+
+    $user_avatar = $user->getUserAvatar($logged_in_user_id);
+    
     include "views/avatar.php";
 ?>
