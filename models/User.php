@@ -97,5 +97,11 @@
                 return $user_role_db;
             }
         }
+
+        public function uploadAvatar(string $avatar_img_name, int $user_id) {
+            $sql_query = "UPDATE user SET avatar = ? WHERE user_id = ?;";
+            $form_data = array($avatar_img_name, $user_id);
+            self::executeSQLQuery($sql_query, $form_data);
+        }
     }
 ?>

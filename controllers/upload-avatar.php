@@ -3,13 +3,18 @@
 
     function upload(){
         include_once "models/ImagesUploader.php";
+        global $database;
+        global $logged_in_user_id;
+        include_once "models/User.php";
+        $user = new User($database);
 
         $uploader = new ImagesUploader('avatar');
 
         $uploader->saveIn("assets/imgs");
 
         try {
-            $file_name = $uploader->save();
+            $img_file_name = $uploader->save();
+            $user->uploadAvatar($img_file_name, $logged_in_user_id);
         }catch (Throwable $e) {
             $e->getMessage();
         }
