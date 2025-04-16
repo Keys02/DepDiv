@@ -5,7 +5,8 @@
                 <img src='assets/imgs/me.jpg' style='object-fit: contain; width: 100%; height: 100%; border-radius: 100%;' />
             </div>
                 <label for='avatar'>Upload avatar</label><br/>
-                <input id='avatar' type='file' name='avatar' accept='image/jpeg' />
+                <input id='avatar' type='file' name='avatar' accept='image/jpeg' required/>
+                <input type='submit' value='Upload' name='upload-avatar' />
         </form>
     "
 ?>
