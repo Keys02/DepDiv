@@ -12,6 +12,13 @@
 
         $uploader->saveIn("assets/imgs");
 
+        $user_old_avatar = $user->getUserAvatar($logged_in_user_id);
+
+        // Delete previous avatar when a user is changing avatar
+        if($user_old_avatar !== null) {
+            unlink("assets/imgs/$user_old_avatar");
+        }
+
         try {
             $img_file_name = $uploader->save();
             $user->uploadAvatar($img_file_name, $logged_in_user_id);
@@ -26,6 +33,6 @@
     }
 
     $user_avatar = $user->getUserAvatar($logged_in_user_id);
-    
+
     include "views/avatar.php";
 ?>
