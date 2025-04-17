@@ -8,7 +8,7 @@
         global $logged_in_user_id;
         global $user;
 
-        $uploader = new ImagesUploader('avatar');
+        $uploader = new ImageUploader('avatar');
 
         $uploader->saveIn("assets/imgs");
 

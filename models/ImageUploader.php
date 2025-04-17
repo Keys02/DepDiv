@@ -1,7 +1,7 @@
 <?php
     require_once "models/check-file.php";
 
-    class ImagesUploader {
+    class ImageUploader {
         private string $file_name = "";
         private string $file_data = "";
         private string $destination = "";
