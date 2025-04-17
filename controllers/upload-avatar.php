@@ -15,7 +15,7 @@
         $user_old_avatar = $user->getUserAvatar($logged_in_user_id);
 
         // Delete previous avatar when a user is changing avatar
-        if($user_old_avatar !== null) {
+        if(isset($user_old_avatar)) {
             unlink("assets/imgs/$user_old_avatar");
         }
 
