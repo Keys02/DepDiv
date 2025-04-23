@@ -15,5 +15,6 @@
                             {$page->getStylesheet()}
                         </head>
                         <body>
+                        <section id='container'>
                 "
 ?>

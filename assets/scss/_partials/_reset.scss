@@ -1,0 +1,49 @@
+html {
+    box-sizing: border-box;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid green;
+  -webkit-box-shadow: 0 0 0px 1000px #efefef inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-fonts);
+    background-color: var(--white-color)
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    font-family: var(--heading-fonts);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    li {
+        list-style-type: none;
+    }
+}
+
+a, a:visited, a:active {
+    text-decoration: none;
+}
+
+fieldset {
+    border: none;
+}

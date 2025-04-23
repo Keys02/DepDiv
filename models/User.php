@@ -104,7 +104,7 @@
             self::executeSQLQuery($sql_query, $form_data);
         }
 
-        public function getUserAvatar(string $user_id) : ?string {
+        public function getUserAvatar(int $user_id) : ?string {
             $sql_query = "SELECT avatar FROM user WHERE user_id = ?;";
             $form_data = array($user_id);
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);

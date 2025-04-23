@@ -8,6 +8,7 @@
 
     $page = new Page("DepDiv");
     
+    $page->setStylesheet("<link rel='stylesheet' href='assets/css/style.css'>");
     require_once "router.php";
 
     if($user_login_session->userIsLoggedIn()) {
@@ -17,10 +18,10 @@
 
         $page->setNavigation(
             "
-                <ul>
-                    <li><a href='index.php?route=/user/{$logged_in_user_id}'>Questions</a></li>
-                    <li><a href='index.php?route=/user/{$logged_in_user_id}/editor'>Post a question</a></li>
-                    <li><a href='index.php?route=/user/{$logged_in_user_id}/my-questions'>My questions</a></li>
+                <ul class='navigation' role='toolbar'>
+                    <li><a href='index.php?route=/user/{$logged_in_user_id}' role='button'>Questions</a></li>
+                    <li><a href='index.php?route=/user/{$logged_in_user_id}/editor' role='button'>Post</a></li>
+                    <li><a href='index.php?route=/user/{$logged_in_user_id}/my-questions' role='button'>My questions</a></li>
                     <li>
                         <form method='get' action='index.php'>
                             <input type='search' name='search-query'/>

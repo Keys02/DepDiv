@@ -1,0 +1,18 @@
+#container {
+    margin-inline-start: auto;
+    margin-inline-end:auto;
+    width: 80%;
+}
+
+.navigation {
+    display: flex;
+    gap: 1.5em
+}
+
+#login-form-section, #signup-form-section {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -1,0 +1,259 @@
+@use './_partials';
+
+/*-----------------------------
+            header
+-----------------------------*/
+/* Navigation */
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+
+    a {
+        color: var(--black-color);
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}
+
+
+/*-----------------------------
+            Main
+-----------------------------*/
+/* Login form styles */
+.login-form {
+    border-radius: 10px;
+    padding: 50px 0;
+    border: 2px solid var(--black-color);
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    legend {
+        text-align: center;
+        font-size: 1.3975em;
+        font-weight: bold;
+    }
+
+    #username, #pwd {
+        position: relative;
+        background-color: var(--white-color);
+        border: none;
+        border-bottom: 2px solid grey;
+        outline: none;
+        width: 340px;
+        font-size: 1em;
+        height: 30px;
+
+        &:focus {
+            border-bottom: 2.35px solid black;
+        }
+
+        &:focus + label {
+            transform: translateY(-90%);
+        }
+
+        &:valid + label {
+            transform: translateY(-90%); 
+        }
+    }
+
+    input[type='submit'] {
+        font-size: .975em;
+        width: 100%;
+        border: none;
+        padding: .5em;
+        font-weight: bold;
+        border-radius: 5px;
+        background-color: rgb(253, 46, 46);
+        color: var(--white-color);
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken(red, 2);
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    
+        li {
+            margin-top: 2em;
+            
+    
+            label[for='username'], label[for='pwd']{
+                color: rgb(168, 168, 168);
+                position: absolute;
+                left: 3%;
+                transition: transform .15s
+    
+            }
+        }
+    
+        li:nth-last-child(1), li:nth-last-child(2) {
+            width: 100%;
+            border: none;
+        }
+    
+        li:nth-last-child(1) {
+            margin-top: .5em;
+            text-align: center;
+        }
+    
+    }
+}
+
+
+/* Signup form section */
+.signup-form {
+    border-radius: 10px;
+    padding: 50px 0;
+    border: 2px solid var(--black-color);
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    legend {
+        text-align: center;
+        font-size: 1.3975em;
+        font-weight: bold;
+    }
+
+    #username, #email, #pwd, #c-pwd {
+        position: relative;
+        background-color: var(--white-color);
+        border: none;
+        border-bottom: 2px solid grey;
+        outline: none;
+        width: 340px;
+        font-size: 1em;
+        height: 30px;
+
+        &:focus {
+            border-bottom: 2.35px solid black;
+        }
+
+        &:focus + label {
+            transform: translateY(-90%);
+        }
+
+        &:valid + label {
+            transform: translateY(-90%); 
+        }
+    }
+
+    input[type='submit'] {
+        font-size: .975em;
+        width: 100%;
+        border: none;
+        padding: .5em;
+        font-weight: bold;
+        border-radius: 5px;
+        background-color: rgb(253, 46, 46);
+        color: var(--white-color);
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken(red, 2);
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    
+        li {
+            margin-top: 2em;
+            
+    
+            label[for='username'], label[for='pwd'], label[for='email'], label[for='c-pwd'] {
+                color: rgb(168, 168, 168);
+                position: absolute;
+                left: 3%;
+                transition: transform .15s
+    
+            }
+        }
+    
+        li:nth-last-child(1), li:nth-last-child(2) {
+            width: 100%;
+            border: none;
+        }
+    
+        li:nth-last-child(1) {
+            margin-top: .5em;
+            text-align: center;
+        }
+    
+    }
+}
+
+/* Questions section styles*/
+.question {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-top: .5em;
+    background-color: #E4E4E4;
+    padding: .5em;
+
+    .question-text {
+        display: flex;
+        flex-direction: column;
+        margin-left: .5em;
+        gap: .5em;
+    }
+
+    .question-body {
+        color: black;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .edit-btn {
+        border: 1.7px solid var(--black-color);
+        padding: .1em;
+        width: 3em;
+        text-align: center;
+        border-radius: 5px;
+        color: var(--black-color);
+        
+        &:hover {
+            background-color: var(--black-color);
+            color: white;
+        }
+    }
+
+    img {
+        width: 3.125rem;
+        height: 3.125rem;
+    }
+}
+
+
+/*-----------------------------
+            footer
+-----------------------------*/
+footer {
+    display: flex;
+    font-size: 1.00875em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-color);
+    color: white;
+    text-align: center;
+    height: 155px;
+}

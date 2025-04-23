@@ -34,7 +34,7 @@
             $this-> title = $title;
         }
 
-        public function setStyleSheet(string $stylesheet) : void { 
+        public function setStylesheet(string $stylesheet) : void { 
             $this->stylesheet = $stylesheet;
         }
 

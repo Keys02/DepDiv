@@ -8,7 +8,8 @@
                           question_id, 
                           question_body, 
                           date_created, 
-                          question_status 
+                          question_status,
+                          user_id 
                           FROM question 
                           ORDER BY question_id DESC;";
             $exec_sql_stmt = self::executeSQLQuery($sql_query);
@@ -26,7 +27,8 @@
                           question_id, 
                           question_body, 
                           date_created, 
-                          question_status 
+                          question_status,
+                          user_id 
                           FROM question 
                           WHERE user_id = ?
                           ORDER BY question_id DESC;";

@@ -4,10 +4,11 @@
 */
     $footer = 
                 "
-                            <footer>
-                                <p>Copyright <small>&copy;</small> 2025 </p>
-                                <p class='author'>Keys🚀</p>
-                            </footer>
+                                </section>
+                                <footer>
+                                    <p><small>&copy;</small> DepDiv 2025. All rights reserved </p>
+                                    <p class='author'>Keys🚀</p>
+                                </footer>
                         </body>
                     </html>
                 "

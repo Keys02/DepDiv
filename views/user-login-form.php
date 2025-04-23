@@ -1,25 +1,27 @@
 <?php
     $template = " 
-                    <form method='post' action='index.php?route=/login'>
+                <section id='login-form-section'>
+                    <form class='login-form' method='post' action='index.php?route=/login'>
                         <fieldset>
-                            <legend>Login</legend>
+                            <legend><span class='form-heading'>Login</span></legend>
                             <ul>
                                 <li>
+                                    <input id='username' type='text' name='username' required/>
                                     <label for='username'>Username</label>
-                                    <input id='username' type='text' placeholder='username...' name='username' required/>
                                 </li>
                                 <li>
+                                    <input id='pwd' type='password' name='pwd' required/>
                                     <label for='pwd'>Password</label>
-                                    <input id='pwd' type='password' placeholder='password...' name='pwd' required/>
+                                </li>
+                                <li>
+                                    <input type='submit' value='Log In' name='log-in' />
+                                </li>
+                                <li>
+                                    <a href='index.php?route=/signup-guest' role='button'>Create new account</a>
                                 </li>
                             </ul>
-                            <li>
-                                <input type='submit' value='Log In' name='log-in' />
-                            </li>
-                            <li>
-                                <a href='index.php?route=/signup-guest' role='button'>Create new account</a>
-                            </li>
                         </fieldset>
                     </form>
+                </section>
                 "
 ?>

@@ -26,17 +26,6 @@ CREATE TABLE user (
     CONSTRAINT uniq_email UNIQUE(email)
 );
 
-
--- CREATE TABLE admin (
---     admin_id INT AUTO_INCREMENT,
---     username VARCHAR(50) NOT NULL,
---     email VARCHAR(320) NOT NULL,
---     password VARCHAR(60) NOT NULL,
---     CONSTRAINT pk_admin PRIMARY KEY(admin_id),
---     CONSTRAINT uniq_username UNIQUE(username),
---     CONSTRAINT uniq_email UNIQUE(email)
--- );
-
 -- Lookup table for the question_status: Categorical data
 CREATE TABLE question_status (
     status_id INT AUTO_INCREMENT,
