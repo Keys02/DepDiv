@@ -85,6 +85,20 @@
     }
 }
 
+/* Editor */
+.editor {
+    legend {
+        font-size: 1.375em;
+        font-weight: bold;
+    }
+
+    input[type='submit'] {
+        @include form-action-btn 
+    }
+}
+
+
+
 /* Search form */
 .search-form {
     .search-btn {

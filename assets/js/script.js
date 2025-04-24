@@ -18,3 +18,13 @@ $('.edit-avatar-btn').on('click', function() {
 $avatarImgUpload.on('change', function() {
     $avatarUploadForm.submit()
 })
+
+$('#summernote').summernote({
+    placeholder: 'What on your mind...',
+    height: 200,
+    width: 800,
+    toolbar: [
+        ['style', ['bold', 'italic', 'underline']],
+        ['para', ['ul', 'ol']]
+    ]
+});

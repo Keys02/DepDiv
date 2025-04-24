@@ -11,6 +11,7 @@
                             <meta name='description' content='Blog site'>
                             <meta name='viewport' content='width=device-width, initial-scale=1.0 shrink-to-fit=no'>
                             <title>{$page->getTitle()}</title>
+                            <link rel='stylesheet' type='text/css' href='assets/css/summernote-lite.min.css'>
                             {$page->getStylesheet()}
                         </head>
                         <body>

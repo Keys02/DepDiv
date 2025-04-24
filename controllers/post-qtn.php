@@ -12,7 +12,7 @@
         $question_id = $_POST['question-id'];
         $question_body = $_POST['qtn'];
 
-        if($button_clicked === "Post Question" && $question_id === '0') {            
+        if($button_clicked === "Post" && $question_id === '0') {            
             $question->postNewQuestion($question_body, $logged_in_user_id);
             header("Location: index.php?route=/user/$logged_in_user_id");
         } else if($button_clicked === "Save" && $question_id !== '0') {

@@ -1,0 +1,13 @@
+@mixin form-action-btn {
+    cursor: pointer;
+    border-radius: var(--btn-border-radius);
+    border: none;
+    color: var(--white-color);
+    background-color: #6f52ff;
+    font-size: .9em;
+    padding: 4px 7px;
+
+    &:hover {
+        background-color: darken(#6f52ff, 2);
+    }
+}
