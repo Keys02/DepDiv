@@ -16,7 +16,8 @@
                                 <article class='question'>
                                     <img src='assets/imgs/{$user->getUserAvatar($question_record->user_id)}'>
                                     <div class='question-text'>
-                                        <a href='index.php?route=/user/{$logged_in_user_id}/question/{$question_record->question_id}' class='question-body'>{$question_record->question_body}</a>
+                                        <h2 class='question-title'><a href='index.php?route=/user/{$logged_in_user_id}/question/{$question_record->question_id}'>{$question_record->question_title}</a></h2>
+                                        <p class='question-body'>{$question_record->question_body}</p>
                                         <a href='index.php?route=/user/{$logged_in_user_id}/editor&question={$question_record->question_id}' class='edit-btn'>Edit</a>
                                     </div>
                                 </article>
@@ -37,7 +38,8 @@
                                 <article class='question'>
                                     <img src='assets/imgs/{$user->getUserAvatar($question_record->user_id)}'>
                                     <div class='question-text'>
-                                        <a href='index.php?route=/user/{$logged_in_user_id}/question/{$question_record->question_id}' class='question-body'>{$question_record->question_body}</a>
+                                        <h2 class='question-title'><a href='index.php?route=/user/{$logged_in_user_id}/question/{$question_record->question_id}'>{$question_record->question_title}</a></h2>
+                                        <p class='question-body'>{$question_record->question_body}</p>
                                     </div>
                                 </article>
                             ";

@@ -275,23 +275,20 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    margin-top: .5em;
+    margin-top: 1em;
     background-color: #E4E4E4;
     padding: .5em;
 
     .question-text {
         display: flex;
         flex-direction: column;
-        margin-left: .5em;
+        margin-left: 1em;
         gap: .5em;
     }
 
     .question-body {
-        color: black;
-        
-        &:hover {
-            text-decoration: underline;
-        }
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .edit-btn {
@@ -309,8 +306,19 @@
     }
 
     img {
+        align-self: flex-start;
         width: 3.125rem;
         height: 3.125rem;
+    }
+
+    .question-title {
+        font-size: 1.1975em;
+        a {
+            color: var(--black-color);
+        }
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 

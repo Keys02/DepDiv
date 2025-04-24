@@ -5,7 +5,8 @@
         
         public function getAllQuestions() : object {
             $sql_query = "SELECT 
-                          question_id, 
+                          question_id,
+                          question_title, 
                           question_body, 
                           date_created, 
                           question_status,
@@ -24,7 +25,8 @@
 
         public function getUserQuestions(int $user_id) : object {
             $sql_query = "SELECT 
-                          question_id, 
+                          question_id,
+                          question_title, 
                           question_body, 
                           date_created, 
                           question_status,

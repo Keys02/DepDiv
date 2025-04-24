@@ -41,7 +41,8 @@ INSERT INTO question_status (status) VALUES
 
 CREATE TABLE question (
     question_id INT AUTO_INCREMENT,
-    question_body TEXT NOT NULL,
+    question_title VARCHAR(300) NOT NULL,
+    question_body TEXT,
     date_created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     question_status INT NOT NULL DEFAULT 1,
     user_id INT NOT NULL,

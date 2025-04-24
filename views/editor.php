@@ -7,7 +7,7 @@
                             <ul>
                                 <li>
                                     <label for='title'>Title</label>
-                                    <input id='title' type='text' />
+                                    <input id='title' type='text' required/>
                                 </li>
                                 <li>";
     $template .= '<textarea id="summernote" name="qtn">' .$question_from_db->question_body . '</textarea>';
