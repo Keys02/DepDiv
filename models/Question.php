@@ -17,9 +17,9 @@
             return $exec_sql_stmt;
         }
 
-        public function postNewQuestion(string $question, int $user_id): void {
-            $sql_query = "INSERT INTO question (question_body, user_id) VALUES (?, ?);";
-            $form_data = array($question, $user_id);
+        public function postNewQuestion(string $question_title,string $question_body, int $user_id): void {
+            $sql_query = "INSERT INTO question (question_title, question_body, user_id) VALUES (?, ?, ?);";
+            $form_data = array($question_title, $question_body, $user_id);
             self::executeSQLQuery($sql_query, $form_data);
         }
 
@@ -55,7 +55,7 @@
         }
 
         public function getQuestionById(int $question_id) : object {
-            $sql_query = "SELECT question_id, question_body, question_status FROM question WHERE question_id = ?;";
+            $sql_query = "SELECT question_id, question_title, question_body, question_status FROM question WHERE question_id = ?;";
             $form_data = array("$question_id");
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
 
@@ -66,9 +66,9 @@
             }
         }
 
-        public function updateQuestion(int $question_id, string $question_body) : void {
-            $sql_query = "UPDATE question SET question_body = ? WHERE question_id = ?;";
-            $form_data = array($question_body, $question_id);
+        public function updateQuestion(int $question_id, string $question_title, string $question_body) : void {
+            $sql_query = "UPDATE question SET question_title = ?, question_body = ? WHERE question_id = ?;";
+            $form_data = array($question_title, $question_body, $question_id);
             self::executeSQLQuery($sql_query, $form_data);
         }
 
