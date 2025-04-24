@@ -5,6 +5,10 @@
 -----------------------------*/
 /* Navigation */
 .navigation {
+    li:not(li:nth-child(5)){
+        margin-top: .5em;
+    }
+
     li:nth-child(3) {
       flex: 1;  
     }
