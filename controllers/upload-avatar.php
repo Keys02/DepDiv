@@ -4,7 +4,7 @@
     $logged_in_user_id = $user_login_session->getLoggedInUser();
 
     function upload(){
-        include_once "models/ImagesUploader.php";
+        include_once "models/ImageUploader.php";
         global $logged_in_user_id;
         global $user;
 

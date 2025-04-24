@@ -5,18 +5,38 @@
 -----------------------------*/
 /* Navigation */
 .navigation {
-    display: flex;
-    flex-flow: row wrap;
+    margin-top: 10px;
+
+    li:nth-child(3) {
+      flex: 1;  
+    }
 
     a {
-        color: var(--black-color);
+        background-color: var(--light-black-color);
+        color: var(--white-color);
+        padding: 5px 10px;
+        border-radius: 4px;
 
         &:hover {
-            font-weight: bold;
+            background-color: #000000;
         }
     }
 }
 
+/* Search form */
+.search-form {
+    .search-btn {
+        border: 2px solid var(--light-black-color);
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--light-black-color);
+            color: var(--white-color);
+        }
+    }
+}
 
 /*-----------------------------
             Main
@@ -65,12 +85,12 @@
         padding: .5em;
         font-weight: bold;
         border-radius: 5px;
-        background-color: rgb(253, 46, 46);
+        background-color: rgb(111, 82, 255);
         color: var(--white-color);
         cursor: pointer;
 
         &:hover {
-            background-color: darken(red, 2);
+            background-color: darken(rgb(111, 82, 255), 2);
         }
     }
 
@@ -154,12 +174,12 @@
         padding: .5em;
         font-weight: bold;
         border-radius: 5px;
-        background-color: rgb(253, 46, 46);
+        background-color: rgb(111, 82, 255);
         color: var(--white-color);
         cursor: pointer;
 
         &:hover {
-            background-color: darken(red, 2);
+            background-color: darken(rgb(111, 82, 255), 2);
         }
     }
 
@@ -198,7 +218,7 @@
     }
 }
 
-/* Questions section styles*/
+/* Questions section */
 .question {
     display: flex;
     flex-flow: row wrap;

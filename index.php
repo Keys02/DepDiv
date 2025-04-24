@@ -23,9 +23,9 @@
                     <li><a href='index.php?route=/user/{$logged_in_user_id}/editor' role='button'>Post</a></li>
                     <li><a href='index.php?route=/user/{$logged_in_user_id}/my-questions' role='button'>My questions</a></li>
                     <li>
-                        <form method='get' action='index.php'>
+                        <form class='search-form' method='get' action='index.php'>
                             <input type='search' name='search-query'/>
-                            <input type='submit' value='search'/>
+                            <input type='submit' class='search-btn' value='Search'/>
                         </form>
                     </li>
                     <li>

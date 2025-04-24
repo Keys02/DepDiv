@@ -10,7 +10,6 @@
 
     $avatar_upload_form .= "
             </div>
-                <label for='avatar'>Upload avatar</label><br/>
                 <input id='avatar' type='file' name='avatar' accept='image/jpeg' required/>
                 <input type='submit' value='Upload' name='upload-avatar' />
         </form>

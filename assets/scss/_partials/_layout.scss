@@ -6,7 +6,8 @@
 
 .navigation {
     display: flex;
-    gap: 1.5em
+    gap: 1.5em;
+    flex-flow: row wrap;
 }
 
 #login-form-section, #signup-form-section {
