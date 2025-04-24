@@ -1,13 +1,22 @@
-@mixin form-action-btn {
-    cursor: pointer;
+@mixin form-btn($button-type) {
     border-radius: var(--btn-border-radius);
     border: none;
     color: var(--white-color);
-    background-color: #6f52ff;
-    font-size: .9em;
-    padding: 4px 7px;
+    background-color: var(--form-btn-color);
+    cursor: pointer;
 
     &:hover {
-        background-color: darken(#6f52ff, 2);
+        background-color: var(--form-btn-hover-color)
+    }
+
+    @if $button-type == authentication {
+        font-size: .975em;
+        width: 100%;
+        padding: .5em;
+        font-weight: bold;
+        border-radius: 5px;
+    } @else if $button-type == action {
+        font-size: .9em;
+        padding: 4px 7px;
     }
 }

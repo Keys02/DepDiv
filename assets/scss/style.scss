@@ -56,32 +56,12 @@
     }
 
     .edit-avatar-btn {
-        cursor: pointer;
-        border-radius: var(--btn-border-radius);
-        border: none;
-        color: var(--white-color);
-        background-color: #6f52ff;
-        font-size: .9em;
-        padding: 4px 7px;
-
-        &:hover {
-            background-color: darken(#6f52ff, 2);
-        }
+        @include partials.form-btn(action)
     }
 
     .logout-btn {
-        background-color: #6f52ff;
-        border: none;
-        border-radius: var(--btn-border-radius);
-        cursor: pointer;
-        color: var(--white-color);
-        font-size: .9em;
-        padding: 4px 15px;
+        @include partials.form-btn(action);
         margin-top: 10px;
-
-        &:hover {
-            background-color: darken(#6f52ff, 2);
-        }
     }
 }
 
@@ -93,7 +73,9 @@
     }
 
     input[type='submit'] {
-        @include form-action-btn 
+        @include partials.form-btn(action);
+        margin-top: .5em;
+        font-size: 1.1em;
     }
 }
 
@@ -155,19 +137,7 @@
     }
 
     input[type='submit'] {
-        font-size: .975em;
-        width: 100%;
-        border: none;
-        padding: .5em;
-        font-weight: bold;
-        border-radius: 5px;
-        background-color: rgb(111, 82, 255);
-        color: var(--white-color);
-        cursor: pointer;
-
-        &:hover {
-            background-color: darken(rgb(111, 82, 255), 2);
-        }
+        @include partials.form-btn(authentication);
     }
 
     ul {
@@ -244,19 +214,7 @@
     }
 
     input[type='submit'] {
-        font-size: .975em;
-        width: 100%;
-        border: none;
-        padding: .5em;
-        font-weight: bold;
-        border-radius: 5px;
-        background-color: rgb(111, 82, 255);
-        color: var(--white-color);
-        cursor: pointer;
-
-        &:hover {
-            background-color: darken(rgb(111, 82, 255), 2);
-        }
+        @include partials.form-btn(authentication)
     }
 
     ul {

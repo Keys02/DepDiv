@@ -21,7 +21,7 @@
             "
                 <ul class='navigation' role='toolbar'>
                     <li><a href='index.php?route=/user/{$logged_in_user_id}' role='button'>Questions</a></li>
-                    <li><a href='index.php?route=/user/{$logged_in_user_id}/editor' role='button'>Post</a></li>
+                    <li><a href='index.php?route=/user/{$logged_in_user_id}/editor' role='button'>Create</a></li>
                     <li><a href='index.php?route=/user/{$logged_in_user_id}/my-questions' role='button'>My questions</a></li>
                     <li>
                         <form class='search-form' method='get' action='index.php'>
