@@ -9,6 +9,7 @@
             $this->title = $title;
         }
 
+        
         /*############################
         #           Getters
         ##############################*/
@@ -27,6 +28,8 @@
         public function getNavigation() : string {
             return $this->navigation;
         }
+
+
         /*############################
         #           Setters
         ##############################*/
