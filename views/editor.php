@@ -7,7 +7,7 @@
                             <ul>
                                 <li>
                                     <label for='title'>Title</label>
-                                    <input id='title' type='text' name='qtn-title' value='{$question_from_db->question_title}' required/>
+                                    <input id='title' type='text' name='qtn-title' maxlength='300' value='{$question_from_db->question_title}' required/>
                                 </li>
                                 <li>";
     $template .= '<textarea id="summernote" name="qtn-body">' .$question_from_db->question_body . '</textarea>';

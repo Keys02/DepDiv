@@ -7,7 +7,9 @@
             $sql_query = "SELECT 
                           question_id,
                           question_title, 
-                          question_body, 
+                          question_body,
+                          SUBSTRING(question_body, 1, 150)  
+                          AS 'question_body_intro',  
                           date_created, 
                           question_status,
                           user_id 
@@ -27,7 +29,9 @@
             $sql_query = "SELECT 
                           question_id,
                           question_title, 
-                          question_body, 
+                          question_body,
+                          SUBSTRING(question_body, 1, 150)  
+                          AS 'question_body_intro',   
                           date_created, 
                           question_status,
                           user_id 
