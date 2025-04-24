@@ -27,7 +27,7 @@
         }
     }
 
-    if(isset($_FILES['avatar']) && isset($_POST['upload-avatar'])) {
+    if(isset($_FILES['avatar'])) {
         upload();
         header("Location: index.php?route=/user/$logged_in_user_id");
     }

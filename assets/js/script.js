@@ -1,10 +1,20 @@
 let $userProfileControl  = $(".user-profile-control")
 let $avatarImg = $('.avatar-img');
+let $avatarImgUpload = $('.avatar-upload')
+let $avatarUploadForm = $('.avatar-upload-form')
 
-$('body').click(function(event) {
+$('body').on('click', function(event) {
     if(event.target == $avatarImg[0]) {
         $(".user-profile-control").toggleClass('show-user-control')
     } else if(event.target !== $userProfileControl[0]) {
         $userProfileControl.removeClass('show-user-control')
     }
+})
+
+$('.edit-avatar-btn').on('click', function() {
+    $avatarImgUpload.trigger('click');
+})
+
+$avatarImgUpload.on('change', function() {
+    $avatarUploadForm.submit()
 })

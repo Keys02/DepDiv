@@ -28,14 +28,14 @@
     }
 
     .user-profile-control {
-        opacity: 0;
+        visibility: hidden;
         background-color: #E4E4E4;
         border-radius: 4px;
         padding: 10px 5px;
     }
 
     .show-user-control {
-        opacity: 1;
+        visibility: visible;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -59,6 +59,7 @@
         background-color: #6f52ff;
         font-size: .9em;
         padding: 4px 7px;
+
         &:hover {
             background-color: darken(#6f52ff, 2);
         }
@@ -73,6 +74,7 @@
         font-size: .9em;
         padding: 4px 15px;
         margin-top: 10px;
+
         &:hover {
             background-color: darken(#6f52ff, 2);
         }
