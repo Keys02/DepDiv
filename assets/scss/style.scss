@@ -5,7 +5,7 @@
 -----------------------------*/
 /* Navigation */
 .navigation {
-    li:not(li:nth-child(5)){
+    li{
         margin-top: .5em;
     }
 
@@ -25,8 +25,8 @@
     }
 
     .avatar {
-        width: 50px;
-        height: 50px;
+        width: 32px;
+        height: 32px;
         cursor: pointer;
         border-radius: 100%;
     }
