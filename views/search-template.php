@@ -4,7 +4,7 @@
     } else {
         include_once "views/qtns-into-template.php";
 
-        $template = "<h3>Search results for <em>$search_query</em></h3>";
+        $template = "<h2>Search results for <em>$search_query</em></h2>";
         
         $template = insert_qtns_into_template($questions_from_db, $template);
     }
