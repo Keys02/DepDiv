@@ -5,15 +5,24 @@
 -----------------------------*/
 /* Navigation */
 .navigation {
+    .logo-typeface {
+        font-family: var(--logo-font);
+    }
+
+    .logo-typeface a {
+        font-size: 1.4975em;
+        color: var(--black-color);
+    }
+
     li{
         margin-top: .5em;
     }
 
-    li:nth-child(3) {
+    li:nth-child(4) {
       flex: 1;  
     }
 
-    a {
+    a:not(li.logo-typeface a) {
         background-color: var(--light-black-color);
         color: var(--white-color);
         padding: 5px 10px;

@@ -20,6 +20,7 @@
         $page->setNavigation(
             "
                 <ul class='navigation' role='toolbar'>
+                    <li class='logo-typeface'><a href='index.php?route=/user/{$logged_in_user_id}'>DepDiv</a></li>
                     <li><a href='index.php?route=/user/{$logged_in_user_id}' role='button'>Questions</a></li>
                     <li><a href='index.php?route=/user/{$logged_in_user_id}/editor' role='button'>Create</a></li>
                     <li><a href='index.php?route=/user/{$logged_in_user_id}/my-questions' role='button'>My questions</a></li>
