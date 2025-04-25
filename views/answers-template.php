@@ -1,6 +1,6 @@
 <?php
-    if(isset($answers_from_db) === false) {
-        $template = "This question is yet to be answered";
+    if($answers_from_db->rowCount() == 0) {
+        $template = "<h2>This question is yet to be answered</h2>";
     }else {
         $template = "
             <h2>{$question_from_db->question_title}</h2>
