@@ -4,7 +4,7 @@
     ";
 
     if(isset($login_error_msg)) {
-        $template .= "<p class='login-error'>{$login_error_msg}</p>";
+        $template .= "<p class='auth-error'>{$login_error_msg}</p>";
     }
 
     $template .= "

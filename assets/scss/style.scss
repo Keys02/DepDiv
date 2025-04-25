@@ -92,13 +92,11 @@
 /*-----------------------------
             Main
 -----------------------------*/
-/* Login form styles */
-#login-form-section {
-    .login-error {
-        color: red;
-    }
+.auth-error {
+    color: red;
 }
 
+/* Login form styles */
 .login-form {
     border-radius: 10px;
     padding: 50px 0;

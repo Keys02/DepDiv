@@ -62,7 +62,7 @@
                     throw new Exception("Username or email already exists");
                 }
             } else {
-                throw new Exception("Username or password or email is invalid or username or password is less than 8 characters");
+                throw new Exception("Username or password is invalid");
             }
 
         }
