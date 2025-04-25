@@ -52,7 +52,7 @@
                           question_status,
                           user_id 
                           FROM question 
-                          WHERE MATCH (question_body)
+                          WHERE MATCH (question_title, question_body)
                           AGAINST(? IN NATURAL LANGUAGE MODE);";
 
             $form_data = array("$search_query");

@@ -62,8 +62,8 @@ CREATE TABLE answer (
     CONSTRAINT fk_answer_table_user FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
 
--- Creating an index for the question_body in question table
-CREATE FULLTEXT INDEX ft_idx_question ON question (question_body);
+-- Creating an index for the question_title and question_body in question table
+CREATE FULLTEXT INDEX ft_idx_question ON question (question_title, question_body);
 
 -- Creating an index for the user_id foreign key in the answer table
 CREATE INDEX idx_answer_table_user_id ON answer(user_id);
