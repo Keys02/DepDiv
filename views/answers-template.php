@@ -7,7 +7,9 @@
             ";
 
         if($question_from_db->question_status === 2) {
-            $template .= "<span class='question-status-msg'>Closed</span>";
+            $template .= "<span class='question-status-msg-close'>Closed</span>";
+        } else {
+            $template .= "<span class='question-status-msg-open'>Open</span>";
         }
 
         while($answer_row = $answers_from_db->fetchObject()) {

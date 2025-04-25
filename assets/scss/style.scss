@@ -322,15 +322,14 @@
 }
 
 /* Answers section */
-.question-status-msg {
-    display: inline-block;
-    margin: .5em 0;
-    font-weight: 600;
-    background-color: #dc3545;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 100px;
+.question-status-msg-close {
+    @include partials.question-status-msg(close)
 }
+
+.question-status-msg-open {
+    @include partials.question-status-msg(open)
+}
+
 .answer {
     display: flex;
     flex-flow: row;
