@@ -1,6 +1,13 @@
 <?php
     $template = " 
                 <section id='login-form-section'>
+    ";
+
+    if(isset($login_error_msg)) {
+        $template .= "<p class='login-error'>{$login_error_msg}</p>";
+    }
+
+    $template .= "
                     <form class='login-form' method='post' action='index.php?route=/login'>
                         <fieldset>
                             <legend><span class='form-heading'>Login</span></legend>

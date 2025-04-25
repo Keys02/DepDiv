@@ -83,7 +83,7 @@
                     return "Password is incorrect";
                 }
             } else {
-                return "Username is invalid";
+                return "Username does not exist";
             }
         }
 

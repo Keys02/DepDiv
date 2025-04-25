@@ -93,6 +93,12 @@
             Main
 -----------------------------*/
 /* Login form styles */
+#login-form-section {
+    .login-error {
+        color: red;
+    }
+}
+
 .login-form {
     border-radius: 10px;
     padding: 50px 0;
