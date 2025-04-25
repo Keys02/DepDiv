@@ -1,16 +1,24 @@
 <?php
-    if($answers_from_db->rowCount() == 0) {
+    function show_question_status(object $question, string $template) {
+        $template = "";
+        if($question->question_status === 2) {
+            $template = "<span class='question-status-msg-close'>Closed</span>";
+        } else {
+            $template = "<span class='question-status-msg-open'>Open</span>";
+        }
+        return $template;
+    }
+
+    if($answers_from_db->rowCount() === 0) {
         $template = "<h2>This question is yet to be answered</h2>";
+        
+        $template .= show_question_status($question_from_db, $template);
     }else {
         $template = "
             <h2>{$question_from_db->question_title}</h2>
             ";
 
-        if($question_from_db->question_status === 2) {
-            $template .= "<span class='question-status-msg-close'>Closed</span>";
-        } else {
-            $template .= "<span class='question-status-msg-open'>Open</span>";
-        }
+        $template .= show_question_status($question_from_db, $template);
 
         while($answer_row = $answers_from_db->fetchObject()) {
             $template .= "
