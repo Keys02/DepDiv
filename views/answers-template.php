@@ -12,7 +12,7 @@
                 <article class='answer'>
                     <img src='assets/imgs/{$user->getUserAvatar($answer_row->user_id)}'>
                     <div class='answer-text'>
-                        <h2>{$user->getUsername($answer_row->user_id)}</h2>
+                        <h2 class='username'>{$user->getUsername($answer_row->user_id)}</h2>
                         <div class='answer-body'>$answer_row->answer_body</div>
                     </div>
                 </article>

@@ -11,6 +11,10 @@
     flex-flow: row wrap;
 }
 
+main {
+    padding-bottom: 1em;
+}
+
 #login-form-section, #signup-form-section {
     height: 80vh;
     display: flex;
