@@ -1,12 +1,12 @@
 <?php
+    if($user_login_session->userIsLoggedIn()) {
+        $logged_in_user_id = $user_login_session->getLoggedInUser();
+    }
+    
     if(isset($_GET['route'])) {
         $current_page = $_GET['route'];
         $exploded_route = explode('/', $_GET['route']);
         $question_id = $exploded_route[4] ?? null;
-        if($user_login_session->userIsLoggedIn()) {
-            $logged_in_user_id = $user_login_session->getLoggedInUser();
-        }
-        
         switch($current_page) {
             case "/login";
                 include_once "controllers/login-user.php";
@@ -43,6 +43,11 @@
         if($role_page === 'admin.php') {
             require_once "controllers/admin/signup-admin.php";
         } else {
+            if($user_login_session->userIsLoggedIn()) {
+                echo "We are here";
+                var_dump($logged_in_user_id);
+                header("Location: index.php?route=/user/$logged_in_user_id");
+            }
             require_once "controllers/login-user.php";
         }
     }
