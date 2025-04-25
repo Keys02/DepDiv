@@ -4,11 +4,11 @@
     $logged_in_user_id = $user_login_session->getLoggedInUser();
 
     function upload(){
-        include_once "models/ImagesUploader.php";
+        include_once "models/ImageUploader.php";
         global $logged_in_user_id;
         global $user;
 
-        $uploader = new ImagesUploader('avatar');
+        $uploader = new ImageUploader('avatar');
 
         $uploader->saveIn("assets/imgs");
 
@@ -27,7 +27,7 @@
         }
     }
 
-    if(isset($_FILES['avatar']) && isset($_POST['upload-avatar'])) {
+    if(isset($_FILES['avatar'])) {
         upload();
         header("Location: index.php?route=/user/$logged_in_user_id");
     }

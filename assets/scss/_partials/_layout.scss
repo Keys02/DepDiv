@@ -1,0 +1,24 @@
+#container {
+    margin-inline-start: auto;
+    margin-inline-end:auto;
+    width: 80%;
+    padding-top: 5px;
+}
+
+.navigation {
+    display: flex;
+    gap: 1.5em;
+    flex-flow: row wrap;
+}
+
+main {
+    padding-bottom: 1em;
+}
+
+#login-form-section, #signup-form-section {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -1,0 +1,37 @@
+@mixin form-btn($button-type) {
+    border-radius: var(--btn-border-radius);
+    border: none;
+    color: var(--white-color);
+    background-color: var(--form-btn-color);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--form-btn-hover-color)
+    }
+
+    @if $button-type == authentication {
+        font-size: .975em;
+        width: 100%;
+        padding: .5em;
+        font-weight: bold;
+        border-radius: 5px;
+    } @else if $button-type == action {
+        font-size: .9em;
+        padding: 5px 7px;
+    }
+}
+
+@mixin question-status-msg($msg) {
+    display: inline-block;
+    margin: .5em 0;
+    font-weight: 600;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 100px;
+
+    @if $msg == close {
+        background-color: #dc3545;
+    } @else if $msg == open {
+        background-color: #198754;
+    }
+}

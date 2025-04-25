@@ -5,6 +5,8 @@
 
     $user_login_session = new UserSession();
     $page = new Page("DepDiv");
+    $page->setStylesheet("<link rel='stylesheet' href='assets/css/style.css'>");
+    require_once "router.php";
 
     include_once "router.php";
     

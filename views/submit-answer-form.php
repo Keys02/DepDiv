@@ -1,22 +1,19 @@
 <?php
     if($question_from_db->question_status === 1) {
         $template .= "
-        <form method='post' action='index.php?route=/user/$user_id/question/$question_id'>
+        <form class='answer-form' method='post' action='index.php?route=/user/$user_id/question/$question_id'>
         <input type='hidden' value='{$user_login_session->getLoggedInUser()}'>
             <fieldset>
                 <ul>
                     <li>
-                        <label for='ans'>Answer</label>
-                        <textarea id='ans' name='ans' required></textarea>
+                        <textarea id='summernote' class='ans' name='ans' required></textarea>
                     </li>
                     <li>
-                        <input type='submit' value='submit-answer' name='submit-answer' />
+                        <input type='submit' class='submit-answer-btn' value='Comment' name='submit-answer' />
                     </li>
                 </ul>
             </fieldset>
         </form>
     ";
-    } else {
-        $template .= "Question has been answered hence closed";
     }
 ?>

@@ -1,0 +1,399 @@
+@use './_partials';
+
+/*-----------------------------
+            header
+-----------------------------*/
+/* Navigation */
+.navigation {
+    .logo-typeface {
+        font-family: var(--logo-font);
+    }
+
+    .logo-typeface a {
+        font-size: 1.4975em;
+        color: var(--black-color);
+    }
+
+    li{
+        margin-top: .5em;
+    }
+
+    li:nth-child(4) {
+      flex: 1;  
+    }
+
+    a:not(li.logo-typeface a) {
+        background-color: var(--light-black-color);
+        color: var(--white-color);
+        padding: 5px 10px;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: #000000;
+        }
+    }
+
+    .avatar {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        border-radius: 100%;
+    }
+
+    .user-profile-control {
+        visibility: hidden;
+        background-color: #E4E4E4;
+        border-radius: 4px;
+        padding: 10px 5px;
+    }
+
+    .show-user-control {
+        visibility: visible;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar-upload {
+        display: none;
+    }
+
+    .user-avatar-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-avatar-btn {
+        @include partials.form-btn(action)
+    }
+
+    .logout-btn {
+        @include partials.form-btn(action);
+        margin-top: 10px;
+    }
+}
+
+/* Search form */
+.search-form {
+    .search-btn {
+        border: 2px solid var(--light-black-color);
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--light-black-color);
+            color: var(--white-color);
+        }
+    }
+}
+
+/*-----------------------------
+            Main
+-----------------------------*/
+/* Login form styles */
+.login-form {
+    border-radius: 10px;
+    padding: 50px 0;
+    border: 2px solid var(--black-color);
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    legend {
+        text-align: center;
+        font-size: 1.3975em;
+        font-weight: bold;
+    }
+
+    #username, #pwd {
+        position: relative;
+        background-color: var(--white-color);
+        border: none;
+        border-bottom: 2px solid grey;
+        outline: none;
+        width: 340px;
+        font-size: 1em;
+        height: 30px;
+
+        &:focus {
+            border-bottom: 2.35px solid black;
+        }
+
+        &:focus + label {
+            transform: translateY(-90%);
+        }
+
+        &:valid + label {
+            transform: translateY(-90%); 
+        }
+    }
+
+    input[type='submit'] {
+        @include partials.form-btn(authentication);
+    }
+
+    ul {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    
+        li {
+            margin-top: 2em;
+            
+    
+            label[for='username'], label[for='pwd']{
+                color: rgb(168, 168, 168);
+                position: absolute;
+                left: 3%;
+                transition: transform .15s
+            }
+        }
+    
+        li:nth-last-child(1), li:nth-last-child(2) {
+            width: 100%;
+            border: none;
+        }
+    
+        li:nth-last-child(1) {
+            margin-top: .5em;
+            text-align: center;
+        }
+    
+    }
+}
+
+/* Editor */
+.editor {
+    ul {
+        li {
+            margin-top: 1em;
+        }
+    }
+
+    legend {
+        font-size: 1.375em;
+        font-weight: bold;
+    }
+
+    input[type='submit'] {
+        @include partials.form-btn(action);
+        margin-top: .5em;
+        font-size: 1.1em;
+    }
+
+    #title {
+        background-color: var(--white-color);
+        border: 1px solid grey;
+        border-radius: 20px;
+        outline: none;
+        width: 50em;
+        font-size: 1em;
+        height: 50px;
+        padding: 0 5px;
+    }
+
+    label[for='title'] {
+        display: block;
+    }
+}
+
+/* Signup form section */
+.signup-form {
+    border-radius: 10px;
+    padding: 50px 0;
+    border: 2px solid var(--black-color);
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    legend {
+        text-align: center;
+        font-size: 1.3975em;
+        font-weight: bold;
+    }
+
+    #username, #email, #pwd, #c-pwd {
+        position: relative;
+        background-color: var(--white-color);
+        border: none;
+        border-bottom: 2px solid grey;
+        outline: none;
+        width: 340px;
+        font-size: 1em;
+        height: 30px;
+
+        &:focus {
+            border-bottom: 2.35px solid black;
+        }
+
+        &:focus + label {
+            transform: translateY(-90%);
+        }
+
+        &:valid + label {
+            transform: translateY(-90%); 
+        }
+    }
+
+    input[type='submit'] {
+        @include partials.form-btn(authentication)
+    }
+
+    ul {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    
+        li {
+            margin-top: 2em;
+            
+    
+            label[for='username'], label[for='pwd'], label[for='email'], label[for='c-pwd'] {
+                color: rgb(168, 168, 168);
+                position: absolute;
+                left: 3%;
+                transition: transform .15s
+    
+            }
+        }
+    
+        li:nth-last-child(1), li:nth-last-child(2) {
+            width: 100%;
+            border: none;
+        }
+    
+        li:nth-last-child(1) {
+            margin-top: .5em;
+            text-align: center;
+        }
+    
+    }
+}
+
+/* Questions section */
+.question {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin-top: 1em;
+    background-color: #E4E4E4;
+    padding: .5em;
+
+    .question-text {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1em;
+        gap: .5em;
+    }
+
+    .question-body {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .edit-btn {
+        border: 1.7px solid var(--black-color);
+        padding: .1em;
+        width: 3em;
+        text-align: center;
+        border-radius: 5px;
+        color: var(--black-color);
+        
+        &:hover {
+            background-color: var(--black-color);
+            color: white;
+        }
+    }
+
+    img {
+        align-self: flex-start;
+        width: 3.125rem;
+        height: 3.125rem;
+    }
+
+    .question-title {
+        font-size: 1.1975em;
+        a {
+            color: var(--black-color);
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* Answers section */
+.question-status-msg-close {
+    @include partials.question-status-msg(close)
+}
+
+.question-status-msg-open {
+    @include partials.question-status-msg(open)
+}
+
+.answer {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin-top: 1em;
+    background-color: #E4E4E4;
+    padding: .5em;
+
+    img {
+        align-self: flex-start;
+        width: 3.125rem;
+        height: 3.125rem;
+    }
+
+    .answer-text {
+        margin-left: 1em;
+    }
+
+    .answer-body {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .username {
+        font-size: 1.1975em;
+    }
+}
+
+.submit-answer-btn {
+    margin-top: .5em;
+    @include partials.form-btn(action);
+}
+
+.alter-question-btn {
+    margin: .5em 0;
+    @include partials.form-btn(action);
+}
+
+.note-editor {
+    margin-top: 1.2975em;
+}
+
+
+/*-----------------------------
+            footer
+-----------------------------*/
+footer {
+    margin-top: auto;
+    display: flex;
+    font-size: 1.00875em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-color);
+    color: white;
+    text-align: center;
+    height: 155px;
+}

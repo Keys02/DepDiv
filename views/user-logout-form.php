@@ -1,7 +1,7 @@
 <?php
-    $template .= "
+    $logout_form = "
         <form method='post' action='index.php'>
-            <input type='submit' value='Log Out' name='log-out'>
+            <input type='submit' class='logout-btn' value='Log Out' name='log-out'>
         </form>
     ";
 ?>

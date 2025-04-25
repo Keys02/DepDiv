@@ -26,17 +26,6 @@ CREATE TABLE user (
     CONSTRAINT uniq_email UNIQUE(email)
 );
 
-
--- CREATE TABLE admin (
---     admin_id INT AUTO_INCREMENT,
---     username VARCHAR(50) NOT NULL,
---     email VARCHAR(320) NOT NULL,
---     password VARCHAR(60) NOT NULL,
---     CONSTRAINT pk_admin PRIMARY KEY(admin_id),
---     CONSTRAINT uniq_username UNIQUE(username),
---     CONSTRAINT uniq_email UNIQUE(email)
--- );
-
 -- Lookup table for the question_status: Categorical data
 CREATE TABLE question_status (
     status_id INT AUTO_INCREMENT,
@@ -52,7 +41,8 @@ INSERT INTO question_status (status) VALUES
 
 CREATE TABLE question (
     question_id INT AUTO_INCREMENT,
-    question_body TEXT NOT NULL,
+    question_title VARCHAR(300) NOT NULL,
+    question_body TEXT,
     date_created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     question_status INT NOT NULL DEFAULT 1,
     user_id INT NOT NULL,
@@ -72,8 +62,8 @@ CREATE TABLE answer (
     CONSTRAINT fk_answer_table_user FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
 
--- Creating an index for the question_body in question table
-CREATE FULLTEXT INDEX ft_idx_question ON question (question_body);
+-- Creating an index for the question_title and question_body in question table
+CREATE FULLTEXT INDEX ft_idx_question ON question (question_title, question_body);
 
 -- Creating an index for the user_id foreign key in the answer table
 CREATE INDEX idx_answer_table_user_id ON answer(user_id);
