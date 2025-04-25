@@ -115,5 +115,17 @@
                 return null;
             }
         }
+
+        public function getUsername(int $user_id) : ?string {
+            $sql_query = "SELECT username FROM user WHERE user_id = ?;";
+            $form_data = array($user_id);
+            $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
+            if($exec_sql_stmt->rowCount() === 1) {
+                $username_from_db = $exec_sql_stmt->fetchObject();
+                return $username_from_db->username;
+            } else {
+                return null;
+            }
+        }
     }
 ?>

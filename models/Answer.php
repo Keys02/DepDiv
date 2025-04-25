@@ -3,7 +3,7 @@
 
     class Answer extends Entity {
         public function getQuestionAnswers(int $question_id) : object {
-            $sql_query = "SELECT answer_body FROM answer WHERE question_id = ?;";
+            $sql_query = "SELECT answer_body, user_id FROM answer WHERE question_id = ?;";
             $form_data = array($question_id);
             $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
             return $exec_sql_stmt;
