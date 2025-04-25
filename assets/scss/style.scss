@@ -322,6 +322,17 @@
     }
 }
 
+/* Answers section */
+.submit-answer-btn {
+    margin-top: .5em;
+    @include partials.form-btn(action);
+}
+
+.alter-question-btn {
+    margin-bottom: .5em;
+    @include partials.form-btn(action);
+}
+
 
 /*-----------------------------
             footer

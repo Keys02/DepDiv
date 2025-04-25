@@ -19,8 +19,8 @@ $avatarImgUpload.on('change', function() {
     $avatarUploadForm.submit()
 })
 
-$('#summernote').summernote({
-    placeholder: 'What on your mind...',
+$('#summernote', '.editor').summernote({
+    placeholder: 'What\'s on your mind...',
     height: 200,
     width: 800,
     toolbar: [
@@ -29,3 +29,14 @@ $('#summernote').summernote({
     ],
     disableResizeEditor: true
 });
+
+$('#summernote', '.answer-form').summernote({
+    placeholder: 'What\'s on your mind',
+    height: 80,
+    width: 800,
+    toolbar: [
+        ['style', ['bold', 'italic', 'underline']],
+        ['para', ['ul', 'ol']]
+    ],
+    disableResizeEditor: true
+})
