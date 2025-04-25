@@ -31,7 +31,7 @@ $('#summernote', '.editor').summernote({
 });
 
 $('#summernote', '.answer-form').summernote({
-    placeholder: 'What\'s on your mind',
+    placeholder: 'Join the conversation',
     height: 80,
     width: 800,
     toolbar: [

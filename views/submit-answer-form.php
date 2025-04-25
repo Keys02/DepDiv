@@ -6,11 +6,10 @@
             <fieldset>
                 <ul>
                     <li>
-                        <label for='ans'>Answer</label>
                         <textarea id='summernote' class='ans' name='ans' required></textarea>
                     </li>
                     <li>
-                        <input type='submit' class='submit-answer-btn' value='Submit answer' name='submit-answer' />
+                        <input type='submit' class='submit-answer-btn' value='Comment' name='submit-answer' />
                     </li>
                 </ul>
             </fieldset>
