@@ -46,9 +46,11 @@
         public function searchQuestion(string $search_query) : object {
             $sql_query = "SELECT
                           question_id, 
+                          question_title,
                           question_body, 
                           date_created, 
-                          question_status 
+                          question_status,
+                          user_id 
                           FROM question 
                           WHERE MATCH (question_body)
                           AGAINST(? IN NATURAL LANGUAGE MODE);";
