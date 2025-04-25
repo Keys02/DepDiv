@@ -44,7 +44,6 @@
             require_once "controllers/admin/signup-admin.php";
         } else {
             if($user_login_session->userIsLoggedIn()) {
-                echo "We are here";
                 var_dump($logged_in_user_id);
                 header("Location: index.php?route=/user/$logged_in_user_id");
             }
