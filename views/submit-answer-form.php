@@ -15,7 +15,5 @@
             </fieldset>
         </form>
     ";
-    } else {
-        $template .= "Question has been answered hence closed";
     }
 ?>

@@ -1,11 +1,14 @@
 <?php
     if(isset($answers_from_db) === false) {
         $template = "This question is yet to be answered";
-        echo "No answer is provided for this question";
     }else {
         $template = "
             <h2>{$question_from_db->question_title}</h2>
             ";
+
+        if($question_from_db->question_status === 2) {
+            $template .= "<span class='question-status-msg'>Closed</span>";
+        }
 
         while($answer_row = $answers_from_db->fetchObject()) {
             $template .= "
