@@ -7,6 +7,7 @@
         $current_page = $_GET['route'];
         $exploded_route = explode('/', $_GET['route']);
         $question_id = $exploded_route[4] ?? null;
+        $answer_id = $exploded_route[6] ?? null;
         switch($current_page) {
             case "/login";
                 include_once "controllers/login-user.php";
@@ -28,6 +29,9 @@
                 break;
             case "/user/{$logged_in_user_id}";
                 include_once "controllers/questions.php";
+                break;
+            case "/user/{$logged_in_user_id}/question/$question_id/answer/$answer_id/edit";
+                include_once "controllers/edit-answer.php";
                 break;
             default;
                 include_once "controllers/404.php";

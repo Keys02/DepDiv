@@ -15,5 +15,22 @@
             self::executeSQLQuery($sql_query, $form_data);
         }
 
+        public function getAnswer(int $answer_id) : object {
+            $sql_query = "SELECT answer_body FROM answer WHERE answer_id = ?;";
+            $form_data = array($answer_id);
+            $exec_sql_stmt = self::executeSQLQuery($sql_query, $form_data);
+            if($exec_sql_stmt->rowCount() === 1) {
+                return $exec_sql_stmt->fetchObject();
+            } else {
+                return new StdClass();
+            }
+        }
+        
+        public function updateAnswer(int $answer_id, string $answer_body) : void {
+            $sql_query = "UPDATE answer SET answer_body = ? WHERE answer_id = ?;";
+            $form_data = array($answer_body, $answer_id);
+            self::executeSQLQuery($sql_query, $form_data);
+        }
+
     }
 ?>

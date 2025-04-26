@@ -40,3 +40,14 @@ $('#summernote', '.answer-form').summernote({
     ],
     disableResizeEditor: true
 })
+
+$('#summernote', '.edit-answer-form').summernote({
+    placeholder: 'Join the conversation',
+    height: 80,
+    width: 800,
+    toolbar: [
+        ['style', ['bold', 'italic', 'underline']],
+        ['para', ['ul', 'ol']]
+    ],
+    disableResizeEditor: true
+})
