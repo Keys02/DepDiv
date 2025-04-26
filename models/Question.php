@@ -9,8 +9,10 @@
                           question_title, 
                           question_body,
                           SUBSTRING(question_body, 1, 150)  
-                          AS 'question_body_intro',  
-                          date_created, 
+                          AS 'question_body_intro',
+                          date_created,  
+                          DATE_FORMAT(date_created, '%b %d %Y') 
+                          AS 'date_posted', 
                           question_status,
                           user_id 
                           FROM question 
@@ -32,7 +34,9 @@
                           question_body,
                           SUBSTRING(question_body, 1, 150)  
                           AS 'question_body_intro',   
-                          date_created, 
+                          date_created,
+                          DATE_FORMAT(date_created, '%b %d %Y') 
+                          AS 'date_posted', 
                           question_status,
                           user_id 
                           FROM question 
@@ -49,8 +53,10 @@
                           question_title,
                           question_body,
                           SUBSTRING(question_body, 1, 150)  
-                          AS 'question_body_intro',    
-                          date_created, 
+                          AS 'question_body_intro',
+                          date_created,    
+                          DATE_FORMAT(date_created, '%b %d %Y') 
+                          AS 'date_posted', 
                           question_status,
                           user_id 
                           FROM question 

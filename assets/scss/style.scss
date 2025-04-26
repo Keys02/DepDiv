@@ -6,6 +6,7 @@
 /* Navigation */
 .navigation {
     .logo-typeface {
+        font-weight: 600;
         font-family: var(--logo-font);
     }
 
@@ -298,6 +299,10 @@
         gap: .5em;
     }
 
+    .date-published {
+        @include partials.time
+    }
+
     .question-body {
         margin-top: 0;
         margin-bottom: 0;
@@ -339,7 +344,7 @@
     align-items: center;
     margin-top: 1em;
     background-color: #E4E4E4;
-    padding: .5em;
+    padding: 1em;
 
     img {
         align-self: flex-start;
@@ -372,6 +377,10 @@
 
     .delete-answer-btn {
         @include partials.style-btn(delete-answer);
+    }
+
+    .time-sent {
+        @include partials.time;
     }
 }
 
