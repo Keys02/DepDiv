@@ -12,7 +12,7 @@
             $user->createNewUser($username, $email, $pwd, $confirm_pwd, "guest");
             header('Location: index.php?route=/login');
         } catch (Exception $e) {
-            echo $e->getMessage();
+            $signup_error_msg = $e->getMessage();
         }
     }
 

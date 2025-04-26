@@ -1,6 +1,11 @@
 <?php
     $template = "
                     <section id='signup-form-section'>
+    ";
+    if(isset($signup_error_msg)) {
+        $template .= "<p class='auth-error'>{$signup_error_msg}</p>";
+    }
+    $template .= "
                         <form class='signup-form' method='post' action='index.php?route=/signup-guest'>
                             <fieldset>
                                 <legend>Create an account</legend>

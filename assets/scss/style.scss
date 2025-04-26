@@ -92,6 +92,10 @@
 /*-----------------------------
             Main
 -----------------------------*/
+.auth-error {
+    color: red;
+}
+
 /* Login form styles */
 .login-form {
     border-radius: 10px;
@@ -300,17 +304,7 @@
     }
 
     .edit-btn {
-        border: 1.7px solid var(--black-color);
-        padding: .1em;
-        width: 3em;
-        text-align: center;
-        border-radius: 5px;
-        color: var(--black-color);
-        
-        &:hover {
-            background-color: var(--black-color);
-            color: white;
-        }
+        @include partials.edit-btn();
     }
 
     img {
@@ -355,6 +349,7 @@
 
     .answer-text {
         margin-left: 1em;
+        flex: 1;
     }
 
     .answer-body {
@@ -364,6 +359,13 @@
 
     .username {
         font-size: 1.1975em;
+    }
+
+    .edit-answer-btn {
+        align-self: flex-start;
+        justify-content: flex-end;
+        font-size: .8975em;
+        @include partials.edit-btn(true);
     }
 }
 
