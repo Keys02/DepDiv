@@ -39,6 +39,7 @@
                     <div class='answer-text'>
                         <h2 class='username'>{$user->getUsername($answer_row->user_id)}</h2>
                         <div class='answer-body'>$answer_row->answer_body</div>
+                        <small class='time-sent'><time date='{$answer_row->time_sent}'>{$answer_row->answer_sent_date}</time></small>
                     </div>";
 
             if($answer_row->user_id === $logged_in_user_id) {

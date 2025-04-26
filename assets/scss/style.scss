@@ -298,6 +298,10 @@
         gap: .5em;
     }
 
+    .date-published {
+        @include partials.time
+    }
+
     .question-body {
         margin-top: 0;
         margin-bottom: 0;
@@ -372,6 +376,10 @@
 
     .delete-answer-btn {
         @include partials.style-btn(delete-answer);
+    }
+
+    .time-sent {
+        @include partials.time;
     }
 }
 
