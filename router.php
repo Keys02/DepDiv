@@ -33,6 +33,9 @@
             case "/user/{$logged_in_user_id}/question/$question_id/answer/$answer_id/edit";
                 include_once "controllers/edit-answer.php";
                 break;
+            case "/user/{$logged_in_user_id}/question/$question_id/answer/$answer_id/remove";
+                include_once "controllers/delete-answer.php";
+                break;
             default;
                 include_once "controllers/404.php";
         }
