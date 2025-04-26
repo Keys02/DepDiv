@@ -42,7 +42,13 @@
                     </div>";
 
             if($answer_row->user_id === $logged_in_user_id) {
-                $template .= "<a href='index.php?route=/user/{$logged_in_user_id}/question/{$question_id}/answer/{$answer_row->answer_id}/edit' role='button' class='edit-answer-btn'>Edit</a>";
+                $template .= "
+                    <div class='answer-user-actions'>
+                        <a href='index.php?route=/user/{$logged_in_user_id}/question/{$question_id}/answer/{$answer_row->answer_id}/remove' role='button' class='delete-answer-btn'>Delete</a>
+                        <a href='index.php?route=/user/{$logged_in_user_id}/question/{$question_id}/answer/{$answer_row->answer_id}/edit' role='button' class='edit-answer-btn'>Edit
+                        </a>
+                    </div>
+                ";
             }
 
             $template .= "

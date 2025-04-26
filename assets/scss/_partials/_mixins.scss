@@ -30,25 +30,37 @@
     border-radius: 100px;
 
     @if $msg == close {
-        background-color: #dc3545;
+        background-color: var(--red-color);
     } @else if $msg == open {
-        background-color: #198754;
+        background-color: var(--green-color);
     }
 }
 
-@mixin edit-btn($isAnswerEditor: false) {
+@mixin style-btn($button-type) {
     width: 3em;
     text-align: center;
     border-radius: 5px;
     color: var(--black-color);
 
-    @if $isAnswerEditor == true {
-        border-radius: 100px;
-        background-color: var(--light-black-color);
+    @if $button-type == edit-answer {
+        border-radius: 5px;
+        font-size: .7975em;
+        padding: 5px;
+        background-color: var(--form-btn-color);
         color: white;
 
         &:hover {
-            background-color: #000000;
+            background-color: var(--form-btn-hover-color);
+        }
+    } @else if $button-type == delete-answer {
+        border-radius: 5px;
+        font-size: .7975em;
+        padding: 5px;
+        background-color: var(--red-color);
+        color: white;
+
+        &:hover {
+            background-color: var(--red-hover-color);
         }
     } @else {
         border: 1.7px solid var(--black-color);

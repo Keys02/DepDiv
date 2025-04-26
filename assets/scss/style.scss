@@ -304,7 +304,7 @@
     }
 
     .edit-btn {
-        @include partials.edit-btn();
+        @include partials.style-btn(edit-question);
     }
 
     img {
@@ -361,11 +361,17 @@
         font-size: 1.1975em;
     }
 
-    .edit-answer-btn {
+    .answer-user-actions {
         align-self: flex-start;
         justify-content: flex-end;
-        font-size: .8975em;
-        @include partials.edit-btn(true);
+    }
+
+    .edit-answer-btn {
+        @include partials.style-btn(edit-answer);
+    }
+
+    .delete-answer-btn {
+        @include partials.style-btn(delete-answer);
     }
 }
 

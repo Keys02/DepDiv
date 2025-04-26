@@ -32,5 +32,11 @@
             self::executeSQLQuery($sql_query, $form_data);
         }
 
+        public function deleteAnswer(int $answer_id) : void {
+            $sql_query = "DELETE FROM answer WHERE answer_id = ?;";
+            $form_data = array($answer_id);
+            self::executeSQLQuery($sql_query, $form_data);
+        }
+
     }
 ?>
