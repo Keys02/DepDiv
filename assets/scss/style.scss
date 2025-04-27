@@ -76,6 +76,35 @@
     }
 }
 
+.image-upload-flash-msg {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: #ffdb9b;
+    border-left: 20px solid #ffa502;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: 2px solid rgb(113, 113, 113);
+    margin-bottom: .5em;
+
+    .msg {
+        margin:0;
+        flex: 1;
+        display: inline-block
+    }
+
+    span {
+        margin-right: 10px;
+        cursor: pointer;
+        padding: 0 7px;
+        
+        &:hover {
+            background-color: rgba(225, 225, 225, .5);
+            border-radius: 100%;
+        }
+    }
+}
+
 /* Search form */
 .search-form {
     .search-btn {

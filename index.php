@@ -17,6 +17,8 @@
         
         $logged_in_user_id = $user_login_session->getLoggedInUser();
 
+        $image_upload_msg = $upload_msg ?? null;
+
         $page->setNavigation(
             "
                 <ul class='navigation' role='toolbar'>
@@ -42,6 +44,15 @@
                 </ul>
             "
         );
+
+        if(isset($image_upload_msg)) {
+            $page->appendNavigation("
+                <div class='image-upload-flash-msg'>
+                    <p class='msg'>$image_upload_msg</p>
+                    <span class='close-btn'>&#10006;</span>
+                </div>
+            ");
+        }
     }
 
     $page->appendContent($template);

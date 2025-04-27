@@ -20,7 +20,7 @@
                             $image_file_is_valid = false;
                         } else {
                             if(filesize($_FILES[$variable_name]['tmp_name']) > $max_size) {
-                                throw new Exception('The image size should be less than 1MB');
+                                throw new Exception('⚠️ Image size must be less than 1MB');
                                 $image_file_is_valid = false;
                             }
                             finfo_close($info);

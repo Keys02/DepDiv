@@ -55,6 +55,10 @@
             $this->navigation = $content;
         }
 
+        public function appendNavigation($content) {
+            $this->navigation .= $content;
+        }
+
     }
 
 ?>
