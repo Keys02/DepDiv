@@ -13,9 +13,9 @@
             $this->file_data = $_FILES[$key]["tmp_name"];
         }
         
-        /*********************
+        /***********************
          *      Getters
-        **********************/
+        ************************/
         public function getFileName() : string {
             return $this->file_name;
         }
@@ -45,7 +45,7 @@
                 move_uploaded_file($this->file_data, $destination_to_upload_image);
                 return $img_assigned_name;
             } else {
-                throw new Exception("An error occured uploading the image");
+                throw new Exception("An error occured while uploading the image");
             }
         }
 
