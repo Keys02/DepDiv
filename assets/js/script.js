@@ -51,3 +51,7 @@ $('#summernote', '.edit-answer-form').summernote({
     ],
     disableResizeEditor: true
 })
+
+$('.close-btn').on('click', function(){
+    $('.image-upload-flash-msg').css('display', 'none');
+})
